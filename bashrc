@@ -11,7 +11,7 @@ shopt -s checkwinsize
 # os system
 os=$(uname -s)
 
-# ls,grep output color
+# ls, grep output color
 lscolor=0
 grepcolor=1
 
@@ -54,19 +54,22 @@ else
   export PS1="\w\$ "
 fi
 
-# general
+# default
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
-[[ -d /usr/local/sbin ]] && PATH="${PATH}:/usr/local/sbin"
-[[ -d /usr/local/bin ]] && PATH="${PATH}:/usr/local/bin"
-[[ -d /opt/bin ]] && PATH="${PATH}:/opt/bin"
 
-# plan9
-PLAN9="/usr/local/plan9"
-[[ -d ${PLAN9}/bin ]] && PATH="${PATH}:${PLAN9}/bin" && export PLAN9
+# local
+local_path="/usr/local/sbin /usr/local/bin /usr/pkg/sbin /usr/pkg/bin /opt/bin"
+for path in $local_path; do
+  [[ -d $path ]] && PATH="${PATH}:${path}"
+done
 
-# home bin
+# home
 [[ -d ${HOME}/bin ]] && PATH="${PATH}:${HOME}/bin"
 [[ -d ${HOME}/opt/bin ]] && PATH="${PATH}:${HOME}/opt/bin"
+
+# plan9
+PLAN9="${HOME}/opt/plan9"
+[[ -d ${PLAN9}/bin ]] && PATH="${PATH}:${PLAN9}/bin" && export PLAN9
 
 # go
 GO="${HOME}/opt/go"
@@ -76,7 +79,7 @@ GO="${HOME}/opt/go"
 AWS="${HOME}/opt/aws"
 [[ -d ${AWS}/bin ]] && PATH="${PATH}:${AWS}/bin"
 
-# default
+# set
 export PATH
 
 # MANPATH
