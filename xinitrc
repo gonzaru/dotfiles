@@ -30,8 +30,8 @@ fi
 
 # xrdb
 if [ $xrdb -eq 1 ]; then
-  if [ -f "${HOME}/.Xdefaults" ]; then
-    xrdb -merge "${HOME}/.Xdefaults" &
+  if [ -f "${HOME}/.Xresources" ]; then
+    xrdb -merge "${HOME}/.Xresources" &
   fi
 fi
 
