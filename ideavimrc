@@ -1,0 +1,239 @@
+" JetBrains IdeaVim
+
+set showcmd
+set showmode
+set number
+set relativenumber
+set clipboard=unnamed,unnamedplus,ideaput
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set nostartofline
+set undolevels=1000
+set history=200
+set novisualbell
+set scrolloff=5
+set sidescrolloff=5
+" don't time out on :mapping
+set notimeout
+set ideastatusicon=gray
+set ideawrite=all
+" join command will be performed via IDE (noideajoin disables it)
+set ideajoin
+" creation of global mark will trigger creation of IDE's bookmark
+set ideamarks
+" select mode, default is continueselect,stopselect
+set keymodel=startsel,stopsel,continueselect,stopselect
+set idearefactormode=select
+" disable ideavim in dialog editors
+set ideavimsupport=
+
+" enables hard failues in case that something goes wrong (debug)
+"set ideastrictmode
+
+" plugins
+set NERDTree
+
+" leader key
+let mapleader = "\"
+
+" edit
+nmap <leader><C-a> <Action>($SelectAll)
+nmap <leader><C-c> <Action>($Copy)
+nmap <leader><C-v> <Action>($Paste)
+nmap <leader><C-S-v> <Action>(EditorPasteFromX11)
+nmap <leader><C-x> <Action>($Cut)
+nmap <leader><C-z> <Action>($Undo)
+nmap <leader><C-S-z> <Action>($Redo)
+nmap <leader>pc <Action>(PasteMultiple)
+
+" default does nothing, do it like vim
+imap <C-j> <Action>(EditorEnter)
+
+" Y same as C,D operators (cursor to end of line). default Y is to yank the whole line
+" nmap Y y$
+
+" <S-k> tries to use manual for selected words (VimQuickJavaDoc)
+nmap <leader><S-k> <Action>(QuickTypeDefinition)
+
+" ide settings
+nmap <leader>is <Action>(ShowSettings)
+
+" code completion
+imap <C-x><C-o> <Action>(CodeCompletion)
+imap <C-x><C-S-o> <Action>(SmartTypeCompletion)
+imap <C-x><C-u> <Action>(CodeCompletionGroup)
+imap <C-x><C-c> <Action>(ClassNameCompletion)
+imap <C-x><C-n> <Action>(HippieCompletion)
+imap <C-x><C-p> <Action>(HippieBackwardCompletion)
+
+" edit, source ideavim
+nmap <leader>ev :edit ~/.ideavimrc<CR>
+nmap <leader>sv :source ~/.ideavimrc<CR><Action>(IdeaVim.ReloadVimRc.reload)
+
+" surround
+nmap <leader>sr <Action>(SurroundWith)
+
+" find
+nmap <leader>g* <Action>(SearchEverywhere)
+nmap <leader>ga <Action>(GotoAction)
+nmap <leader>gc <Action>(GotoClass)
+nmap <leader>gf <Action>(GotoFile)
+nmap <leader>gs <Action>(GotoSymbol)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gD <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gl <Action>(JumpToLastWindow)
+imap <leader>gl <Action>(JumpToLastWindow)
+nmap <leader>gr <Action>(ShowUsages)
+nmap <leader>gR <Action>(ShowRecentFindUsagesGroup)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gS <Action>(SelectIn)
+nmap <leader>gh <Action>(CallHierarchy)
+
+" gVim as external tool
+nmap <leader>gv <Action>(Tool_External Tools_gVim)
+
+" Go format (GoLand)
+nmap <leader>fm <Action>(GoFmtFileAction)
+
+" git version control
+nmap <leader>vv <Action>(ActivateVersionControlToolWindow)
+nmap <leader>vf <Action>(Git.FileActions)
+nmap <leader>va <Action>(Annotate)
+nmap <leader>vc <Action>(CheckinProject)
+nmap <leader>vC <Action>(Git.ResolveConflicts)
+nmap <leader>vp <Action>(Vcs.Push)
+nmap <leader>vh <Action>(Vcs.ShowTabbedFileHistory)
+nmap <leader>vH <Action>(LocalHistory.ShowHistory)
+nmap <leader>vl <Action>(Vcs.Show.Log)
+nmap <leader>v_ <Action>(Vcs.Show.Local.Changes)
+nmap <leader>v= <Action>(Compare.LastVersion)
+
+" hide
+nmap <leader>hi <Action>(HideAllWindows)
+nmap <leader>cn <Action>(CloseAllNotifications)
+" my distraction mode (view->appareance)
+nmap <leader>tgd <Action>(HideAllWindows)<Action>(ViewNavigationBar)<Action>(ViewStatusBar)<Action>(ViewMembersInNavigationBar)<Action>(ViewToolButtons)<Action>(ViewMainMenu)
+
+" NERDTree plugin
+nmap <leader>ex :NERDTreeToggle<CR>
+nmap <leader>ne :NERDTreeToggle<CR>
+nmap <leader>ng :NERDTreeFocus<CR>
+nmap <leader>nf :NERDTreeFind<CR>
+nmap <leader>nc :NERDTreeClose<CR>
+nmap <leader>nr :NERDTreeRefreshRoot<CR>
+let g:NERDTreeMapActivateNode='<CR>'
+let g:NERDTreeMapOpenSplit='s'
+let g:NERDTreeMapOpenVSplit='v'
+let g:NERDTreeMapToggleZoom='<BS>'
+
+nmap <leader>gp <Action>(ActivateProjectToolWindow)
+nmap <leader>gP <Action>(SelectInProjectView)
+nmap <leader>gn <Action>(ShowNavBar)
+nmap <leader>gb <Action>(Bookmarks.Goto)
+nmap <leader>gB <Action>(ShowBookmarks)
+
+nmap <leader>sm <Action>(ShowPopupMenu)
+nmap <leader>si <Action>(ShowIntentionActions)
+
+" vim actions
+nmap <leader>Va <Action>(VimActions)
+nmap <leader>Vf <Action>(VimFindActionIdAction)
+
+" use native ide jumps instead of ideavim
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+nmap <leader>g; <Action>(JumpToLastChange)
+nmap <leader>g, <Action>(JumpToNextChange)
+
+" terminal, scratches
+nmap <leader>sh :shell<CR>
+nmap <leader>sc <Action>(NewScratchFile)
+nmap <leader>ps <Action>(com.jetbrains.python.console.RunPythonOrDebugConsoleAction)
+nmap <leader>pp <Action>(ActivatePythonPackagesToolWindow)
+
+" debugging
+nmap <leader>da <Action>(ToggleBreakpointEnabled)
+nmap <leader>de <Action>(EditBreakpoint)
+nmap <leader>df <Action>(Debugger.FocusOnBreakpoint)
+nmap <leader>dp <Action>(ToggleLineBreakpoint)
+nmap <leader>dm <Action>(BreakpointActionsGroup)
+nmap <leader>dt <Action>(ToggleTemporaryLineBreakpoint)
+nmap <leader>dv <Action>(ViewBreakpoints)
+nmap <leader>dr <Action>(Debugger.RemoveAllBreakpointsInFile)
+nmap <leader>dR <Action>(Debugger.RemoveAllBreakpoints)
+
+" show errors
+nmap <leader>es <Action>(ShowErrorDescription)
+nmap <leader>en <Action>(GotoNextError)
+nmap <leader>ep <Action>(GotoPreviousError)
+
+" toggle
+nmap <leader>tgn <Action>(EditorToggleShowLineNumbers)
+nmap <leader>tgr :set relativenumber!<CR>
+nmap <leader>tgh :set hlsearch!<CR>
+nmap <leader>* :nohlsearch<CR>
+nmap <leader>tgN <Action>(ViewNavigationBar)
+nmap <leader>tgT <Action>(ViewToolBar)
+nmap <leader>tgb <Action>(ToggleBookmark)
+nmap <leader>tgB <Action>(ViewToolButtons)
+nmap <leader>tgM <Action>(ViewMainMenu)
+nmap <leader>tgS <Action>(ViewStatusBar)
+nmap <leader>tgD <Action>(ToggleDistractionFreeMode)
+nmap <leader>tgP <Action>(TogglePresentationMode)
+nmap <leader>tgZ <Action>(ToggleZenMode)
+nmap <leader>tgF <Action>(ToggleFullScreen)
+nmap <leader>tgg <Action>(ToggleFullScreenGroup)
+
+" navigate
+nmap <leader>fs <Action>(ShowFilePath)
+nmap <leader>fS <Action>(FileStructurePopup)
+nmap <leader>fp <Action>(FindInPath)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fl <Action>(RecentLocations)
+nmap <leader>fc <Action>(RecentChangedFiles)
+nmap <leader>fu <Action>(FindUsages)
+nmap <leader>fU <Action>(FindUtagesInFile)
+nmap <leader>fh <Action>(HighlightUsagesInFile)
+nmap <leader><C-f> <Action>(Find)
+
+" methods
+nmap <leader>md <Action>(MethodDown)
+nmap <leader>mu <Action>(MethodUp)
+
+" TIP: speed up using macros @l, @h, @j, @k (@@)
+" resize horizontal windows (vsplit)
+nmap <leader><C-h> <Action>(StretchSplitToLeft)
+nmap <leader><C-l> <Action>(StretchSplitToRight)
+" resize vertical windows (split)
+nmap <leader><C-j> <Action>(StretchSplitToBottom)
+nmap <leader><C-k> <Action>(StretchSplitToTop)
+nmap <leader><C-i> <Action>(StretchSplitToBottom)
+nmap <leader><C-d> <Action>(StretchSplitToTop)
+
+" tabs, switcher
+nmap <leader>sw <Action>(Switcher)
+nmap <leader><Space> <Action>(Switcher)
+nmap <leader><S-Space> <Action>(RecentFiles)
+nmap <leader><C-S-Space> <Action>(RecentChangedFiles)
+nmap <leader><C-A-S-Space> <Action>(SwitcherAndRecentFiles)
+" by default works only with <C-S-6> (C-S-^)
+" https://youtrack.jetbrains.com/issue/VIM-2169
+nmap <C-6> <C-S-6>
+nmap <leader>bn <Action>(NextTab)
+nmap <leader>bp <Action>(PreviousTab)
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>bt <Action>(ReopenClosedTab)
+nmap <leader>bo :tabonly<CR>
+
+" run, refactor
+nmap <leader>ru <Action>(Run)
+nmap <leader>re <Action>(Rerun)
+nmap <leader>rc <Action>(RunClass)
+nmap <leader>rE <Action>(RestartIde)
+nmap <leader>rf <Action>(ReformatCode)
+nmap <leader>rF <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>ro <Action>(ToggleReadOnlyAttribute)
