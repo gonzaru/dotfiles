@@ -1,0 +1,49 @@
+# *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
+
+# 230 (yellow plan9)
+# 195 (cyan)
+# 147 (purple)
+# 144 (green/brown numbers)
+# 187 (gray/brown clear)
+# 243 (also we replace real darkgrey with 243 for now)
+# 229 looks same as lightyellow
+# 160 looks a red color
+# 210 looks a red light color
+# 98 with bold for numbers
+
+# general
+color default black 230
+color date  black 230 bold
+color author black 230
+color cursor black 187
+color title-focus white black
+color title-blur white 243
+
+# main
+color main-head 229 black
+color main-remote 229 black
+color main-tracked 229 black
+color main-tag 229 black
+color main-ref 229 black
+color graph-commit black 230
+
+# diff colors
+color diff-header black 229
+color diff-index black 230
+color diff-chunk black 230
+color diff-oldmode black 230
+color diff-newmode black 230
+color diff-similarity blue blue
+
+color 'Author: ' black 230
+color 'Date: '  black 230
+color 'AuthorDate: ' black 230
+color 'CommitDate: ' black 230
+color 'Commit: ' black 230
+color 'Refs: ' black 230
+color 'Merge: ' black 230
+color '--- ' black 230
+color '+++ ' black 230
+
+# misc
+set vertical-split = false

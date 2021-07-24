@@ -1,0 +1,9 @@
+set editing-mode emacs
+set bell-style none
+set meta-flag on
+set convert-meta off
+set output-meta on
+set show-all-if-ambiguous on
+set visible-stats on
+set enable-bracketed-paste off
+set revert-all-at-newline on

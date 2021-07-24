@@ -1,0 +1,4 @@
+style "plan9" {
+  bg[NORMAL] = "#8888cc"
+}
+widget "vim-main-window.*GtkForm" style "plan9"

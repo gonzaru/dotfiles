@@ -1,0 +1,6 @@
+prefer-ipv4 = yes
+lirc = no
+brightness=0
+contrast=0
+hue=0
+saturation=0

@@ -1,0 +1,19 @@
+! X defaults settings
+
+Xft.dpi:        96
+Xft.autohint:   0
+Xft.hintstyle: hintslight
+Xft.hinting:    1
+Xft.antialias:  1
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
+
+! XTERM
+XTerm*utf8Title: true
+XTerm*eightBitInput: true
+XTerm*metaSendsEscape: false
+
+! UXTERM (xterm -u8)
+UXTerm*utf8Title: true
+UXTerm*eightBitInput: true
+UXTerm*metaSendsEscape: false
