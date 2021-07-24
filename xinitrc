@@ -83,7 +83,7 @@ if [ "$wm" = "dwm" ]; then
 
   while :; do
     if [ $wm = "dwm" ]; then
-      "${HOME}/opt/dwm/dwm"
+      dwm
     fi
     if [ "$(printf 'no\nyes' | dmenu -p "Do you really want to quit ${wm}?")" = "yes" ]; then
       # double check

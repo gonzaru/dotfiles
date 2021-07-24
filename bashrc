@@ -80,8 +80,12 @@ AWS="${HOME}/opt/aws"
 export PATH
 
 # MANPATH
-[[ -d /opt/man ]] && MANPATH=${MANPATH}:/opt/man && export MANPATH
-[[ -d ${HOME}/opt/man ]] && MANPATH=${MANPATH}:${HOME}/opt/man && export MANPATH
+if [[ "$os" == "Linux" ]]; then
+  MANPATH=$(manpath -g)
+  [[ -d /opt/man ]] && MANPATH=${MANPATH}:/opt/man
+  [[ -d ${HOME}/opt/man ]] && MANPATH=${MANPATH}:${HOME}/opt/man
+  export MANPATH
+fi
 
 #  prompt command title (dwm, xmonad, wmii, etc..)
 case $TERM in

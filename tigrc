@@ -1,15 +1,9 @@
 # *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
 
 # 230 (yellow plan9)
-# 195 (cyan)
-# 147 (purple)
-# 144 (green/brown numbers)
-# 187 (gray/brown clear)
-# 243 (also we replace real darkgrey with 243 for now)
-# 229 looks same as lightyellow
-# 160 looks a red color
-# 210 looks a red light color
-# 98 with bold for numbers
+# 187 (gray/brown)
+# 243 (darkgrey)
+# 229 (lightyellow)
 
 # general
 color default black 230
