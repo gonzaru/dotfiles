@@ -203,15 +203,12 @@ nmap <leader><C-f> <Action>(Find)
 nmap <leader>md <Action>(MethodDown)
 nmap <leader>mu <Action>(MethodUp)
 
-" TIP: speed up using macros @l, @h, @j, @k (@@)
 " resize horizontal windows (vsplit)
 nmap <leader><C-h> <Action>(StretchSplitToLeft)
 nmap <leader><C-l> <Action>(StretchSplitToRight)
 " resize vertical windows (split)
 nmap <leader><C-j> <Action>(StretchSplitToBottom)
 nmap <leader><C-k> <Action>(StretchSplitToTop)
-nmap <leader><C-i> <Action>(StretchSplitToBottom)
-nmap <leader><C-d> <Action>(StretchSplitToTop)
 
 " tabs, switcher
 nmap <leader>sw <Action>(Switcher)
