@@ -64,8 +64,8 @@ if [ "$wm" = "dwm" ]; then
   xsetroot -solid '#333333' &
 
   while :; do
-    if command -v updatewmbar >/dev/null 2>&1; then
-      updatewmbar
+    if command -v wmbarupdate >/dev/null 2>&1; then
+      wmbarupdate
     else
       xsetroot -name "$(date +"%a %b %e %H:%M")"
     fi
