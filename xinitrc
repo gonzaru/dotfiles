@@ -87,9 +87,9 @@ if [ "$wm" = "dwm" ]; then
     if [ $wm = "dwm" ]; then
       dwm
     fi
-    if [ "$(printf 'no\nyes' | dmenu -p "Do you really want to quit ${wm}?")" = "yes" ]; then
+    if [ "$(printf 'no\nyes' | dmenu -p "Do you want to quit ${wm}?")" = "yes" ]; then
       # double check
-      if [ "$(printf 'no\nyes' | dmenu -p "Again, Do you really want to quit ${wm}?")" = "yes" ]; then
+      if [ "$(printf 'no\nyes' | dmenu -p "Again, Do you want to quit ${wm}?")" = "yes" ]; then
         break
       fi
     fi
@@ -98,5 +98,8 @@ if [ "$wm" = "dwm" ]; then
   # kill previous loop if exists (no zombie)
   if [ -n "$pidbarloop" ]; then
     kill $pidbarloop
+    if ps -p "$pidbarloop" >/dev/null 2>&1; then
+        kill -KILL "$pidbarloop"
+    fi
   fi
 fi
