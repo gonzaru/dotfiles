@@ -10,10 +10,10 @@ Xft.rgba:       rgb
 
 ! XTERM
 XTerm*utf8Title: true
-XTerm*eightBitInput: true
-XTerm*metaSendsEscape: false
+XTerm*eightBitInput: false
+XTerm*metaSendsEscape: true
 
 ! UXTERM (xterm -u8)
 UXTerm*utf8Title: true
-UXTerm*eightBitInput: true
-UXTerm*metaSendsEscape: false
+UXTerm*eightBitInput: false
+UXTerm*metaSendsEscape: true
