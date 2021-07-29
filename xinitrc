@@ -65,9 +65,9 @@ if [ "$wm" = "dwm" ]; then
 
   while :; do
     if command -v wmbarupdate >/dev/null 2>&1; then
-      wmbarupdate
+      wmbarupdate &
     else
-      xsetroot -name "$(date +"%a %b %e %H:%M")"
+      xsetroot -name "$(date +"%a %b %e %H:%M")" &
     fi
     if command -v wmclocksleep >/dev/null 2>&1; then
       sleep "$(wmclocksleep)"
