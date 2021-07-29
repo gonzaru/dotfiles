@@ -74,12 +74,11 @@ if [ "$wm" = "dwm" ]; then
     else
       sleep $((60 - $(/bin/date +%S | sed 's/^0\([0-9]\)/\1/')))
     fi
-    # make sure that loop does not exists when X is killed
+    # make sure that loop does not exist when X is killed
     if ! pgrep xinit >/dev/null 2>&1; then
       break
     fi
   done &
-
   # $! pid of last bg process
   pidbarloop=$!
 
