@@ -68,14 +68,14 @@ done
 [[ -d ${HOME}/opt/bin ]] && PATH="${PATH}:${HOME}/opt/bin"
 
 # plan9
-PLAN9="${HOME}/opt/plan9"
-[[ -d ${PLAN9}/bin ]] && PATH="${PATH}:${PLAN9}/bin" && export PLAN9
+PLAN9="${HOME}/opt/plan9" && [[ -d $PLAN9 ]] && export PLAN9
+[[ -d ${PLAN9}/bin ]] && PATH="${PATH}:${PLAN9}/bin"
 
 # go
-GOROOT="${HOME}/opt/go"
-GOPATH="${HOME}/go"
-[[ -d ${GOROOT}/bin ]] && PATH="${PATH}:${GOROOT}/bin" && export GOROOT
-[[ -d ${GOPATH}/bin ]] && PATH="${PATH}:${GOPATH}/bin" && export GOPATH
+GOROOT="${HOME}/opt/go" && [[ -d $GOROOT ]] && export GOROOT
+GOPATH="${HOME}/go" && [[ -d $GOPATH ]] && export GOPATH
+[[ -d ${GOROOT}/bin ]] && PATH="${PATH}:${GOROOT}/bin"
+[[ -d ${GOPATH}/bin ]] && PATH="${PATH}:${GOPATH}/bin"
 
 # aws
 AWS="${HOME}/opt/aws"
