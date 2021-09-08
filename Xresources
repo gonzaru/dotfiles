@@ -12,8 +12,34 @@ Xft.rgba:       rgb
 XTerm*utf8Title: true
 XTerm*eightBitInput: false
 XTerm*metaSendsEscape: true
+XTerm*faceName: xft:DejaVu Sans Mono:antialias=true:autohint=true
+XTerm*faceSize: 12
+XTerm*background: black
+XTerm*foreground: white
+XTerm*loginShell: false
+XTerm*cursorBlink: true
+XTerm*cursorColor: #8888cc
+XTerm*cursorUnderLine: true
+XTerm*pointerColor: white
+XTerm*saveLines: 2048
+XTerm*scrollBar: false
+XTerm*logInhibit: true
+XTerm*utmpInhibit: true
 
 ! UXTERM (xterm -u8)
 UXTerm*utf8Title: true
 UXTerm*eightBitInput: false
 UXTerm*metaSendsEscape: true
+UXTerm*faceName: xft:DejaVu Sans Mono:antialias=true:autohint=true
+UXTerm*faceSize: 12
+UXTerm*background: black
+UXTerm*foreground: white
+UXTerm*loginShell: false
+UXTerm*cursorBlink: true
+UXTerm*cursorColor: #8888cc
+UXTerm*cursorUnderLine: true
+UXTerm*pointerColor: white
+UXTerm*saveLines: 2048
+UXTerm*scrollBar: false
+UXTerm*logInhibit: true
+UXTerm*utmpInhibit: true

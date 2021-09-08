@@ -3,7 +3,7 @@
 # settings
 bell=0
 dmps=0
-xrdb=0
+xrdb=1
 wmname=1
 pulseaudio=1
 xautolock=1
