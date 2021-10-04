@@ -57,10 +57,19 @@
   <action id="StretchSplitToTop">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl k" />
   </action>
+  <action id="ToggleDistractionFreeMode">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl enter" />
+  </action>
+  <action id="TogglePresentationMode">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl enter" />
+  </action>
   <action id="ToggleReadOnlyAttribute">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl i" />
   </action>
   <action id="Tool_External Tools_gVim">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl g" />
+  </action>
+  <action id="ViewMainMenu">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl m" />
   </action>
 </keymap>
