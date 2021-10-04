@@ -1,4 +1,4 @@
-<keymap version="1" name="XWin copy" parent="Default for XWin">
+<keymap version="1" name="XWin custom" parent="Default for XWin">
   <action id="ChangeSplitOrientation">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl back_slash" />
   </action>
@@ -39,6 +39,11 @@
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl t" />
   </action>
+  <action id="ShowPopupMenu">
+    <keyboard-shortcut first-keystroke="context_menu" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl f10" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl back_slash" />
+  </action>
   <action id="SplitHorizontally">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl s" />
   </action>
@@ -71,5 +76,8 @@
   </action>
   <action id="ViewMainMenu">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl m" />
+  </action>
+  <action id="ViewNavigationBar">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl b" />
   </action>
 </keymap>
