@@ -80,4 +80,7 @@
   <action id="ViewNavigationBar">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl b" />
   </action>
+  <action id="ViewStatusBar">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl b" />
+  </action>
 </keymap>
