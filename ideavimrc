@@ -11,7 +11,7 @@ set ignorecase
 set smartcase
 set nostartofline
 set undolevels=1000
-set history=200
+set history=500
 set novisualbell
 set scrolloff=5
 set sidescrolloff=5
@@ -26,6 +26,8 @@ set ideamarks
 " select mode, default is continueselect,stopselect
 set keymodel=startsel,stopsel,continueselect,stopselect
 set idearefactormode=select
+" disable to entering digraphs in insert mode
+set nodigraph
 " disable ideavim in dialog editors
 set ideavimsupport=
 
@@ -70,6 +72,7 @@ imap <C-x><C-p> <Action>(HippieBackwardCompletion)
 
 " edit, source ideavim
 nmap <leader>ev :edit ~/.ideavimrc<CR>
+nmap <leader>ed :edit<CR>
 nmap <leader>sv :source ~/.ideavimrc<CR><Action>(IdeaVim.ReloadVimRc.reload)
 
 " surround
@@ -234,3 +237,8 @@ nmap <leader>rf <Action>(ReformatCode)
 nmap <leader>rF <Action>(Refactorings.QuickListPopupAction)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>ro <Action>(ToggleReadOnlyAttribute)
+
+" handlers
+" sethandler <C-\> a:ide
+" sethandler <C-k> a:ide
+" sethandler <C-j> a:ide

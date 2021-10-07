@@ -1,7 +1,7 @@
 <keymap version="1" name="XWin custom" parent="Default for XWin">
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="alt f12" />
-    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl t" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl enter" />
   </action>
   <action id="ChangeSplitOrientation">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl back_slash" />
@@ -80,7 +80,7 @@
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl k" />
   </action>
   <action id="ToggleDistractionFreeMode">
-    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl enter" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl d" />
   </action>
   <action id="TogglePresentationMode">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl enter" />
@@ -90,6 +90,12 @@
   </action>
   <action id="Tool_External Tools_gVim">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl g" />
+  </action>
+  <action id="Unsplit">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl minus" />
+  </action>
+  <action id="UnsplitAll">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl minus" />
   </action>
   <action id="ViewMainMenu">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl m" />
