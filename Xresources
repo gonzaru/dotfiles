@@ -25,6 +25,7 @@ XTerm*saveLines: 2048
 XTerm*scrollBar: false
 XTerm*logInhibit: true
 XTerm*utmpInhibit: true
+XTerm*titeInhibit: true
 
 ! UXTERM (xterm -u8)
 UXTerm*utf8Title: true
@@ -43,3 +44,4 @@ UXTerm*saveLines: 2048
 UXTerm*scrollBar: false
 UXTerm*logInhibit: true
 UXTerm*utmpInhibit: true
+UXTerm*titeInhibit: true
