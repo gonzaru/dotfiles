@@ -4,7 +4,7 @@ set showcmd
 set showmode
 set number
 set relativenumber
-set clipboard=unnamed,unnamedplus,ideaput
+set clipboard^=unnamed,unnamedplus
 set hlsearch
 set incsearch
 set ignorecase
@@ -237,8 +237,3 @@ nmap <leader>rf <Action>(ReformatCode)
 nmap <leader>rF <Action>(Refactorings.QuickListPopupAction)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>ro <Action>(ToggleReadOnlyAttribute)
-
-" handlers
-" sethandler <C-\> a:ide
-" sethandler <C-k> a:ide
-" sethandler <C-j> a:ide
