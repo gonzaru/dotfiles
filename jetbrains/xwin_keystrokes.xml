@@ -16,6 +16,9 @@
     <keyboard-shortcut first-keystroke="ctrl f4" />
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl c" />
   </action>
+  <action id="EditorActions">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl slash" />
+  </action>
   <action id="EditorCutLineBackward">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl x" />
   </action>
@@ -43,6 +46,9 @@
   </action>
   <action id="EditorSortLines">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl o" />
+  </action>
+  <action id="EditorToggleActions">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl n" />
   </action>
   <action id="EditorToggleShowLineNumbers">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl n" />
@@ -109,10 +115,10 @@
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl m" />
   </action>
   <action id="ViewNavigationBar">
-    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl b" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl b" />
   </action>
   <action id="ViewStatusBar">
-    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl b" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl b" />
   </action>
   <action id="ViewToolBar">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl t" />
