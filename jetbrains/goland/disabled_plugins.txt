@@ -15,6 +15,7 @@ com.jetbrains.performancePlugin
 com.jetbrains.performancePlugin.dynamicPlugins
 com.jetbrains.plugins.webDeployment
 hg4idea
+idea.plugin.protoeditor
 intellij.indexing.shared
 org.editorconfig.editorconfigjetbrains
 org.intellij.intelliLang
