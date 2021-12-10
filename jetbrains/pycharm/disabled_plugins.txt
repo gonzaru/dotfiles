@@ -8,11 +8,14 @@ com.intellij.CloudConfig
 com.intellij.completion.ml.ranking
 com.intellij.copyright
 com.intellij.lang.puppet
+com.intellij.microservices.ui
 com.intellij.plugins.watcher
+com.intellij.searcheverywhere.ml
 com.intellij.tasks
 com.intellij.tasks.timeTracking
 com.jetbrains.changeReminder
 com.jetbrains.codeWithMe
+com.jetbrains.gateway
 com.jetbrains.intellij.datalore
 com.jetbrains.performancePlugin
 com.jetbrains.performancePlugin.dynamicPlugins
@@ -40,6 +43,7 @@ org.jetbrains.plugins.stylus
 org.jetbrains.plugins.textmate
 org.jetbrains.plugins.vagrant
 org.jetbrains.settingsRepository
+org.toml.lang
 ru.adelf.idea.dotenv
 tanvd.grazi
 training

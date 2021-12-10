@@ -1,0 +1,98 @@
+if !has('ide')
+  finish
+endif
+
+" settings
+set showcmd
+set showmode
+set number
+set relativenumber
+set clipboard^=unnamed,unnamedplus
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set nostartofline
+set undolevels=1000
+set history=500
+set novisualbell
+set scrolloff=5
+set sidescrolloff=5
+set notimeout
+set ideastatusicon=disabled
+set ideawrite=all
+set ideajoin
+set ideamarks
+set keymodel=startsel,stopsel,continueselect,stopselect
+set idearefactormode=select
+set ideavimsupport=
+set nodigraph
+
+" puglins
+" set NERDTree
+
+" full ide
+sethandler <C-\> a:ide
+" https://vim.fandom.com/wiki/Unused_keys
+" <C-q> unused, all modes
+sethandler <C-q> a:ide
+" <C-s> unused, all modes
+sethandler <C-s> a:ide
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+" <C-k> commit idea vim, does nothing in Vim normal, digraph in insert
+sethandler <C-k> n:ide
+" <C-j> same as enter
+sethandler <C-j> a:ide
+
+" mix ide & vim
+" <C-n> (same as j)
+sethandler <C-n> n:ide i-v:vim
+" <C-p> (same as k)
+sethandler <C-p> n:ide i-v:vim
+" <C-[> (same as Esc)
+sethandler <C-[> n:ide i-v:vim
+
+" full vim
+sethandler <C-a> a:vim
+sethandler <C-b> a:vim
+sethandler <C-c> a:vim
+sethandler <C-d> a:vim
+sethandler <C-e> a:vim
+sethandler <C-f> a:vim
+sethandler <C-g> a:vim
+sethandler <C-h> a:vim
+sethandler <C-i> a:vim
+sethandler <C-l> a:vim
+sethandler <C-m> a:vim
+sethandler <C-o> a:vim
+sethandler <C-r> a:vim
+sethandler <C-t> a:vim
+sethandler <C-u> a:vim
+sethandler <C-v> a:vim
+sethandler <C-w> a:vim
+sethandler <C-x> a:vim
+sethandler <C-y> a:vim
+sethandler <C-]> a:vim
+
+" exception because uses Shift (alternate file :e #, :b #)
+" <C-^> does not work
+sethandler <C-6> a:vim
+sethandler <C-S-6> a:vim
+
+" maps / sethandler
+imap <C-n> <Action>(HippieCompletion)
+imap <C-p> <Action>(HippieBackwardCompletion)
+
+" maps
+imap <C-x><C-o> <Action>(CodeCompletion)
+imap <C-x><C-i> <Action>(SmartTypeCompletion)
+imap <C-x><C-u> <Action>(CodeCompletionGroup)
+imap <C-x><C-c> <Action>(ClassNameCompletion)
+
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+" nmap \* :nohlsearch<CR>
+
+" alternate file (:e #, :b #)
+nmap <C-6> <C-S-6>

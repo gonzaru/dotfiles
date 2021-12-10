@@ -42,6 +42,7 @@ com.intellij.java-i18n
 com.intellij.javaee
 com.intellij.javaee.app.servers.integration
 com.intellij.javaee.batch
+com.intellij.javaee.el
 com.intellij.javaee.extensions
 com.intellij.javaee.gradle
 com.intellij.javaee.jpa
@@ -55,6 +56,7 @@ com.intellij.microservices.java.clients
 com.intellij.microservices.ui
 com.intellij.quarkus
 com.intellij.reactivestreams
+com.intellij.searcheverywhere.ml
 com.intellij.spring
 com.intellij.spring.batch
 com.intellij.spring.boot
@@ -73,6 +75,7 @@ com.intellij.uiDesigner
 com.intellij.velocity
 com.jetbrains.changeReminder
 com.jetbrains.codeWithMe
+com.jetbrains.gateway
 com.jetbrains.jax.ws
 com.jetbrains.packagesearch.intellij-plugin
 com.jetbrains.performancePlugin
@@ -97,6 +100,7 @@ org.intellij.grails
 org.intellij.groovy
 org.intellij.intelliLang
 org.intellij.plugins.markdown
+org.intellij.qodana
 org.jetbrains.android
 org.jetbrains.debugger.streams
 org.jetbrains.idea.eclipse
