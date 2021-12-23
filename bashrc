@@ -36,8 +36,10 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # vim
-alias vim="vim -u ~/.vimrc"
-alias gvim="gvim -u ~/.vimrc"
+alias vim="~/opt/bin/vim -u ~/.vimrc"
+alias gvim="~/opt/bin/gvim -u ~/.vimrc"
+alias view="~/opt/bin/view"
+alias rview="~/opt/bin/rview"
 
 # emacs
 alias emacs="emacs -nw"
@@ -58,7 +60,7 @@ fi
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
 
 # local
-local_path="/usr/local/sbin /usr/local/bin /usr/pkg/sbin /usr/pkg/bin /opt/bin"
+local_path="/usr/local/sbin /usr/local/bin /usr/pkg/sbin /usr/pkg/bin /opt/sbin /opt/bin"
 for path in $local_path; do
   [[ -d $path ]] && PATH="${PATH}:${path}"
 done
@@ -66,6 +68,10 @@ done
 # home
 [[ -d ${HOME}/bin ]] && PATH="${PATH}:${HOME}/bin"
 [[ -d ${HOME}/opt/bin ]] && PATH="${PATH}:${HOME}/opt/bin"
+
+# pkgsrc
+[[ -d ${HOME}/opt/pkg/sbin ]] && PATH="${PATH}:${HOME}/opt/pkg/sbin"
+[[ -d ${HOME}/opt/pkg/bin ]] && PATH="${PATH}:${HOME}/opt/pkg/bin"
 
 # plan9
 PLAN9="${HOME}/opt/plan9" && [[ -d $PLAN9 ]] && export PLAN9
@@ -87,14 +93,17 @@ export PATH
 # MANPATH
 if [[ "$os" == "Linux" ]]; then
   MANPATH=$(manpath -g)
-  [[ -d /opt/man ]] && MANPATH=${MANPATH}:/opt/man
+elif [[ "$os" == "Darwin" ]]; then
+  MANPATH=$(manpath)
+fi
+if [[ -n $MANPATH ]]; then
   [[ -d ${HOME}/opt/man ]] && MANPATH=${MANPATH}:${HOME}/opt/man
   export MANPATH
 fi
 
 #  prompt command title (dwm, xmonad, wmii, etc..)
 case $TERM in
-  xterm|xterm-256color|screen|screen-256color|tmux-256color)
+  xterm|xterm-256color|screen|screen-256color|tmux|tmux-256color)
     # remote ssh user@hostname
     if [[ -n $REMOTEHOST ]]; then
       PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
@@ -109,7 +118,7 @@ esac
 if hash vim 2>/dev/null; then
   export EDITOR="vim"
   export VISUAL="vim"
-else
+elif hash vi 2>/dev/null; then
   export EDITOR="vi"
   export VISUAL="vi"
 fi
@@ -119,7 +128,7 @@ if hash less 2>/dev/null; then
   export PAGER="less"
   export LESSCHARSET="utf-8"
   export LESS="-R -M -X"
-else
+elif hash more 2>/dev/null; then
   export PAGER="more"
 fi
 
@@ -129,13 +138,15 @@ if [[ $PAGER == "most" ]]; then
 fi
 
 # default non X graphical browser
-if [[ -z $DISPLAY ]]; then
-  export BROWSER="lynx"
+if [[ $os != "Darwin" ]] && [[ -z $DISPLAY ]]; then
+  if hash lynx 2>/dev/null; then
+    export BROWSER="lynx"
+  fi
 fi
 
 # locales
 case $os in
-  Linux)
+  Linux|Darwin)
     export LANG="en_US.UTF-8"
     export LC_ALL="en_US.UTF-8"
     ;;
@@ -156,7 +167,7 @@ if [[ -f ${AWS}/bin/aws_completer ]]; then
 fi
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
-if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color ]]; then
+if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os == "Darwin" ]]; then
   if [[ $TERM == "xterm" ]]; then
     export TERM=xterm-256color
   fi
