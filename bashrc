@@ -49,6 +49,11 @@ alias emacs="emacs -nw"
 # drwxr-xr-x for directories
 umask 22
 
+# Disable zsh warning
+if [[ $os == "Darwin" ]]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
 # PS1 prompt
 if [[ $USER == "root" ]]; then
   export PS1="\w\e[0;31m\]#\[\e[0m "
