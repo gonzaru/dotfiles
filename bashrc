@@ -50,7 +50,7 @@ alias emacs="emacs -nw"
 umask 22
 
 # Disable zsh warning
-if [[ $os == "Darwin" ]]; then
+if [[ $os == "Darwin" && $SHELL == "/bin/bash" ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
@@ -143,7 +143,7 @@ if [[ $PAGER == "most" ]]; then
 fi
 
 # default non X graphical browser
-if [[ $os != "Darwin" ]] && [[ -z $DISPLAY ]]; then
+if [[ $os != "Darwin" && -z $DISPLAY ]]; then
   if hash lynx 2>/dev/null; then
     export BROWSER="lynx"
   fi
