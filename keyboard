@@ -1,0 +1,12 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+# /etc/default/keyboard
+
+XKBMODEL="pc101"
+XKBLAYOUT="us"
+XKBVARIANT=""
+XKBOPTIONS="caps:escape,ctrl:swap_lalt_lctl_lwin,ctrl:ralt_rctrl,ctrl:rctrl_ralt,compose:paus"
+
+BACKSPACE="guess"
