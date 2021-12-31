@@ -166,6 +166,19 @@ case $os in
     ;;
 esac
 
+# bash completion
+if [[ $os == "Linux" ]]; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+  fi
+elif [[ $os == "Darwin" ]]; then
+  if ((BASH_VERINFO >= 5)); then
+    if [[ -f ${HOME}/opt/pkg/bash-completion/bash_completion ]]; then
+      . ${HOME}/opt/pkg/bash-completion/bash_completion
+    fi
+  fi
+fi
+
 # completion aws cli
 if [[ -f ${AWS}/bin/aws_completer ]]; then
   complete -C "${AWS}/bin/aws_completer" aws
