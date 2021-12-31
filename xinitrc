@@ -7,6 +7,7 @@ os=$(uname -s)
 bell=0
 dmps=0
 xrdb=1
+xmodmap=1
 wmname=1
 pulseaudio=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
 xautolock=1
@@ -42,6 +43,13 @@ if [ $xrdb -eq 1 ]; then
   fi
 fi
 
+# xmodmap
+if [ $xmodmap -eq 1 ]; then
+  if [ -f "${HOME}/.Xmodmap" ]; then
+    xmodmap "${HOME}/.Xmodmap" &
+  fi
+fi
+
 # wmname fixes some java bugs on (dwm, wmii)
 if [ $wmname -eq 1 ]; then
   wmname LG3D &
@@ -56,7 +64,9 @@ fi
 
 # xautolock
 if [ $xautolock -eq 1 ]; then
-  xautolock -detectsleep -time 5 -locker slock &
+  if command -v slock >/dev/null 2>&1; then
+    xautolock -detectsleep -time 5 -locker slock &
+  fi
 fi
 
 # autocutsel
