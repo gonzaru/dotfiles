@@ -48,7 +48,7 @@ if [ $wmname -eq 1 ]; then
 fi
 
 # pulseaudio
-if [ $pulseaudio -eq 1 ]; then
+if [ "$pulseaudio" -eq 1 ]; then
   if ! pulseaudio --check >/dev/null 2>&1; then
     start-pulseaudio-x11 2>&1 &
   fi
