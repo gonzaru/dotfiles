@@ -1,11 +1,15 @@
 #  X Windows startup file
 
+# os system
+os=$(uname -s)
+
 # settings
 bell=0
 dmps=0
 xrdb=1
+xmodmap=1
 wmname=1
-pulseaudio=1
+pulseaudio=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
 xautolock=1
 autocutsel=0
 
@@ -21,10 +25,14 @@ fi
 
 # dmps
 if [ $dmps -eq 1 ]; then
-  xset +dpms &
+  if [ "$os" != "Darwin" ]; then
+    xset +dpms &
+  fi
   xset s on &
 else
-  xset -dpms &
+  if [ "$os" != "Darwin" ]; then
+    xset -dpms &
+  fi
   xset s off &
 fi
 
@@ -35,13 +43,20 @@ if [ $xrdb -eq 1 ]; then
   fi
 fi
 
+# xmodmap
+if [ $xmodmap -eq 1 ]; then
+  if [ -f "${HOME}/.Xmodmap" ]; then
+    xmodmap "${HOME}/.Xmodmap" &
+  fi
+fi
+
 # wmname fixes some java bugs on (dwm, wmii)
 if [ $wmname -eq 1 ]; then
   wmname LG3D &
 fi
 
 # pulseaudio
-if [ $pulseaudio -eq 1 ]; then
+if [ "$pulseaudio" -eq 1 ]; then
   if ! pulseaudio --check >/dev/null 2>&1; then
     start-pulseaudio-x11 2>&1 &
   fi
@@ -49,7 +64,9 @@ fi
 
 # xautolock
 if [ $xautolock -eq 1 ]; then
-  xautolock -detectsleep -time 5 -locker slock &
+  if command -v slock >/dev/null 2>&1; then
+    xautolock -detectsleep -time 5 -locker slock &
+  fi
 fi
 
 # autocutsel
@@ -75,7 +92,8 @@ if [ "$wm" = "dwm" ]; then
       sleep $((60 - $(/bin/date +%S | sed 's/^0\([0-9]\)/\1/')))
     fi
     # make sure that loop does not exist when X is killed
-    if ! pgrep xinit >/dev/null 2>&1; then
+    xproc=$([ "$os" = "Darwin" ] && echo "Xquartz" || echo "xinit")
+    if ! pgrep "$xproc" >/dev/null 2>&1; then
       break
     fi
   done &
