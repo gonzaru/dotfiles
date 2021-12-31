@@ -1,11 +1,14 @@
 #  X Windows startup file
 
+# os system
+os=$(uname -s)
+
 # settings
 bell=0
 dmps=0
 xrdb=1
 wmname=1
-pulseaudio=1
+pulseaudio=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
 xautolock=1
 autocutsel=0
 
@@ -21,10 +24,14 @@ fi
 
 # dmps
 if [ $dmps -eq 1 ]; then
-  xset +dpms &
+  if [ "$os" != "Darwin" ]; then
+    xset +dpms &
+  fi
   xset s on &
 else
-  xset -dpms &
+  if [ "$os" != "Darwin" ]; then
+    xset -dpms &
+  fi
   xset s off &
 fi
 
@@ -75,7 +82,8 @@ if [ "$wm" = "dwm" ]; then
       sleep $((60 - $(/bin/date +%S | sed 's/^0\([0-9]\)/\1/')))
     fi
     # make sure that loop does not exist when X is killed
-    if ! pgrep xinit >/dev/null 2>&1; then
+    xproc=$([ "$os" = "Darwin" ] && echo "Xquartz" || echo "xinit")
+    if ! pgrep "$xproc" >/dev/null 2>&1; then
       break
     fi
   done &
