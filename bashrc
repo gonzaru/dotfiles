@@ -36,10 +36,10 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # vim
-alias vim="~/opt/bin/vim -u ~/.vimrc"
-alias gvim="~/opt/bin/gvim -u ~/.vimrc"
-alias view="~/opt/bin/view"
-alias rview="~/opt/bin/rview"
+alias vim="vim -u ~/.vimrc"
+alias gvim="gvim -u ~/.vimrc"
+alias view="view"
+alias rview="rview"
 
 # emacs
 alias emacs="emacs -nw"
@@ -71,12 +71,17 @@ for path in $local_path; do
 done
 
 # home
-[[ -d ${HOME}/bin ]] && PATH="${PATH}:${HOME}/bin"
-[[ -d ${HOME}/opt/bin ]] && PATH="${PATH}:${HOME}/opt/bin"
+[[ -d ${HOME}/opt/bin ]] && PATH="${HOME}/opt/bin:${PATH}"
+[[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
+
 
 # pkgsrc
 [[ -d ${HOME}/opt/pkg/sbin ]] && PATH="${PATH}:${HOME}/opt/pkg/sbin"
 [[ -d ${HOME}/opt/pkg/bin ]] && PATH="${PATH}:${HOME}/opt/pkg/bin"
+
+# mac ports
+[[ -d /opt/local/sbin ]] && PATH="${PATH}:/opt/local/sbin"
+[[ -d /opt/local/bin ]] && PATH="${PATH}:/opt/local/bin"
 
 # plan9
 PLAN9="${HOME}/opt/plan9" && [[ -d $PLAN9 ]] && export PLAN9
@@ -102,7 +107,9 @@ elif [[ "$os" == "Darwin" ]]; then
   MANPATH=$(manpath)
 fi
 if [[ -n $MANPATH ]]; then
-  [[ -d ${HOME}/opt/man ]] && MANPATH=${MANPATH}:${HOME}/opt/man
+  [[ -d /opt/local/share/man ]] && MANPATH=/opt/local/share/man:${MANPATH}
+  [[ -d ${HOME}/opt/pkg/man ]] && MANPATH=${HOME}/opt/pkg/man:${MANPATH}
+  [[ -d ${HOME}/opt/man ]] && MANPATH=${HOME}/opt/man:${MANPATH}
   export MANPATH
 fi
 
