@@ -182,6 +182,8 @@ fi
 # completion aws cli
 if [[ -f ${AWS}/bin/aws_completer ]]; then
   complete -C "${AWS}/bin/aws_completer" aws
+elif hash aws_completer 2>/dev/null; then
+  complete -C "$(command -v aws_completer)" aws
 fi
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
