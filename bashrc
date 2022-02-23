@@ -179,9 +179,12 @@ if [[ $os == "Linux" ]]; then
     . /usr/share/bash-completion/bash_completion
   fi
 elif [[ $os == "Darwin" ]]; then
-  if ((BASH_VERINFO >= 5)); then
+  bash_version=$(echo "$BASH_VERSION" | cut -d '.' -f1)
+  if ((bash_version >= 5)); then
     if [[ -f ${HOME}/opt/pkg/bash-completion/bash_completion ]]; then
       . ${HOME}/opt/pkg/bash-completion/bash_completion
+    elif [[ -f /opt/local/etc/profile.d/bash_completion.sh ]]; then
+      . /opt/local/etc/profile.d/bash_completion.sh
     fi
   fi
 fi
