@@ -36,10 +36,17 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # vim
-alias vim="vim -u ~/.vimrc"
-alias gvim="gvim -u ~/.vimrc"
-alias view="view"
-alias rview="rview"
+if [[ $VIMRUNTIME =~ "MacVim" ]]; then
+  alias vim="mvim -v -u ~/.vimrc"
+  alias gvim="mvim -u ~/.vimrc"
+  alias view="mview -v -u ~/.vimrc"
+  alias rview="mview -v -Z -u ~/.vimrc"
+else
+  alias vim="vim -u ~/.vimrc"
+  alias gvim="gvim -u ~/.vimrc"
+  alias view="view -u ~/.vimrc"
+  alias rview="rview -u ~/.vimrc"
+fi
 
 # emacs
 alias emacs="emacs -nw"
@@ -73,7 +80,6 @@ done
 # home
 [[ -d ${HOME}/opt/bin ]] && PATH="${HOME}/opt/bin:${PATH}"
 [[ -d ${HOME}/bin ]] && PATH="${HOME}/bin:${PATH}"
-
 
 # pkgsrc
 [[ -d ${HOME}/opt/pkg/sbin ]] && PATH="${PATH}:${HOME}/opt/pkg/sbin"
