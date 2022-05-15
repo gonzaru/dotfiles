@@ -3,14 +3,33 @@
 # os system
 os=$(uname -s)
 
+# start in home
+if [ "$PWD" != "$HOME" ]; then
+  cd "${HOME}" || exit 1
+fi
+
+# home path
+if [ "$os" = "Darwin" ]; then
+  if [ -d "${HOME}/opt/bin" ]; then
+    if ! echo "$PATH" | grep -qF "${HOME}/opt/bin"; then
+      export PATH=${HOME}/opt/bin:${PATH}
+    fi
+  fi
+  if [ -d "${HOME}/bin" ]; then
+    if ! echo "$PATH" | grep -qF "${HOME}/bin"; then
+      export PATH=${HOME}/bin:${PATH}
+    fi
+  fi
+fi
+
 # settings
 bell=0
 dmps=0
 xrdb=1
-xmodmap=1
+xmodmap=$([ "$os" = "Darwin" ] && echo 1 || echo 0)
 wmname=1
 pulseaudio=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
-xautolock=1
+xautolock=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
 autocutsel=0
 
 # default window manager
@@ -44,7 +63,7 @@ if [ $xrdb -eq 1 ]; then
 fi
 
 # xmodmap
-if [ $xmodmap -eq 1 ]; then
+if [ "$xmodmap" -eq 1 ]; then
   if [ -f "${HOME}/.Xmodmap" ]; then
     xmodmap "${HOME}/.Xmodmap" &
   fi
@@ -63,7 +82,7 @@ if [ "$pulseaudio" -eq 1 ]; then
 fi
 
 # xautolock
-if [ $xautolock -eq 1 ]; then
+if [ "$xautolock" -eq 1 ]; then
   if command -v slock >/dev/null 2>&1; then
     xautolock -detectsleep -time 5 -locker slock &
   fi
@@ -92,8 +111,7 @@ if [ "$wm" = "dwm" ]; then
       sleep $((60 - $(/bin/date +%S | sed 's/^0\([0-9]\)/\1/')))
     fi
     # make sure that loop does not exist when X is killed
-    xproc=$([ "$os" = "Darwin" ] && echo "Xquartz" || echo "xinit")
-    if ! pgrep "$xproc" >/dev/null 2>&1; then
+    if ! ps uxw | grep -qE ' /?[x]init '; then
       break
     fi
   done &
