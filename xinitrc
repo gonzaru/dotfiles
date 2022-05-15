@@ -26,7 +26,7 @@ fi
 bell=0
 dmps=0
 xrdb=1
-xmodmap=$([ "$os" = "Darwin" ] && echo 1 || echo 0)
+xmodmap=0
 wmname=1
 pulseaudio=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
 xautolock=$([ "$os" = "Darwin" ] && echo 0 || echo 1)
@@ -120,6 +120,7 @@ if [ "$wm" = "dwm" ]; then
 
   while :; do
     if [ $wm = "dwm" ]; then
+      # uxterm &
       dwm
     fi
     if [ "$(printf 'no\nyes' | dmenu -p "Do you want to quit ${wm}?")" = "yes" ]; then
