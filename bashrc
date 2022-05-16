@@ -37,10 +37,10 @@ alias rm="rm -i"
 
 # vim
 if [[ $VIMRUNTIME =~ "MacVim" ]]; then
-  alias vim="mvim -v -u ~/.vimrc"
-  alias gvim="mvim -u ~/.vimrc"
-  alias view="mview -v -u ~/.vimrc"
-  alias rview="mview -v -Z -u ~/.vimrc"
+  alias vim="echo 'Error: do not use an instance of MacVim inside MacVim'"
+  alias gvim="vim"
+  alias view='vim'
+  alias rview='vim'
 else
   alias vim="vim -u ~/.vimrc"
   alias gvim="gvim -u ~/.vimrc"

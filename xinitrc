@@ -97,7 +97,12 @@ fi
 # dwm
 if [ "$wm" = "dwm" ]; then
   # background color
-  xsetroot -solid '#333333' &
+  if [ "$os" = "Darwin" ]; then
+    # solid space gray pro
+    xsetroot -solid '#7A7B80' &
+  else
+    xsetroot -solid '#333333' &
+  fi
 
   while :; do
     if command -v wmbarupdate >/dev/null 2>&1; then
