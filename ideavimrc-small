@@ -15,7 +15,9 @@ set smartcase
 set nostartofline
 set undolevels=1000
 set history=500
-set novisualbell
+" set novisualbell
+" it will do nothing and archive the desired effect (novisualbell)
+set visualbell
 set scrolloff=5
 set sidescrolloff=5
 set notimeout
