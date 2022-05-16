@@ -23,6 +23,10 @@
     <keyboard-shortcut first-keystroke="meta alt close_bracket" />
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl close_bracket" />
   </action>
+  <action id="EditorCodeBlockStart">
+    <keyboard-shortcut first-keystroke="meta alt open_bracket" />
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl open_bracket" />
+  </action>
   <action id="EditorCutLineBackward">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl x" />
   </action>
@@ -119,6 +123,9 @@
   </action>
   <action id="ToggleReadOnlyAttribute">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl 8" />
+  </action>
+  <action id="ToggleZenMode">
+    <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="shift ctrl z" />
   </action>
   <action id="Tool_External Tools_gVim">
     <keyboard-shortcut first-keystroke="ctrl back_slash" second-keystroke="ctrl g" />
