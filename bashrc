@@ -5,25 +5,34 @@ if [[ $- != *i* ]]; then
   return
 fi
 
+# bash version
+bash_version=${BASH_VERSION%%.*}
+
 # checks the window size after each command
 shopt -s checkwinsize
 
-# os system
-os=$(uname -s)
+# os system name
+os_name=$(uname -s)
+
+# architecture type & os system version
+if [[ $os_name == "Darwin" ]]; then
+  arch=$(uname -m)
+  os_version=$(uname -v)
+fi
 
 # ls, grep output color
-lscolor=0
-grepcolor=1
+ls_color=0
+grep_color=1
 
 # see CLICCOLOR for FreeBSD
-if [[ $lscolor == 1 ]]; then
+if [[ $ls_color == 1 ]]; then
   alias ls="ls --color=auto -F"
 else
   alias ls="ls -F"
 fi
 
 # color for (grep, fgrep, egrep)
-if [[ $grepcolor == 1 ]]; then
+if [[ $grep_color == 1 ]]; then
   alias grep="grep --color=auto"
   alias fgrep="fgrep --color=auto"
   alias egrep="egrep --color=auto"
@@ -48,7 +57,7 @@ else
   alias rview="rview -u ~/.vimrc"
 fi
 
-# emacs
+# emacs (without gui)
 alias emacs="emacs -nw"
 
 # set a reasonable default umask
@@ -56,8 +65,8 @@ alias emacs="emacs -nw"
 # drwxr-xr-x for directories
 umask 22
 
-# Disable zsh warning
-if [[ $os == "Darwin" && $SHELL == "/bin/bash" ]]; then
+# disable bash version warning
+if [[ $os_name == "Darwin" ]] && ((bash_version <= 3)); then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
@@ -65,7 +74,12 @@ fi
 if [[ $USER == "root" ]]; then
   export PS1="\w\e[0;31m\]#\[\e[0m "
 else
-  export PS1="\w\$ "
+  # macOS arm64 with rosetta x86_64
+  if [[ $os_name == "Darwin" ]] && [[ $arch == "x86_64" ]] && [[ $os_version =~ "RELEASE_ARM64" ]]; then
+    export PS1="${arch}:\w\$ "
+  else
+    export PS1="\w\$ "
+  fi
 fi
 
 # default
@@ -107,9 +121,9 @@ AWS="${HOME}/opt/aws"
 export PATH
 
 # MANPATH
-if [[ "$os" == "Linux" ]]; then
+if [[ $os_name == "Linux" ]]; then
   MANPATH=$(manpath -g)
-elif [[ "$os" == "Darwin" ]]; then
+elif [[ $os_name == "Darwin" ]]; then
   MANPATH=$(manpath)
 fi
 if [[ -n $MANPATH ]]; then
@@ -124,11 +138,10 @@ case $TERM in
   xterm|xterm-256color|screen|screen-256color|tmux|tmux-256color)
     # remote ssh user@hostname
     if [[ -n $REMOTEHOST ]]; then
-      PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
+      export PROMPT_COMMAND='printf "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
     else
-      PROMPT_COMMAND='echo -ne "\033]0;${PWD/#${HOME}/\~}\007"'
+      export PROMPT_COMMAND='printf "\033]0;${PWD/#${HOME}/\~}\007"'
     fi
-    export PROMPT_COMMAND
     ;;
 esac
 
@@ -156,14 +169,16 @@ if [[ $PAGER == "most" ]]; then
 fi
 
 # default non X graphical browser
-if [[ $os != "Darwin" && -z $DISPLAY ]]; then
-  if hash lynx 2>/dev/null; then
+if [[ $os_name != "Darwin" && -z $DISPLAY ]]; then
+  if hash links 2>/dev/null; then
+    export BROWSER="links"
+  elif hash lynx 2>/dev/null; then
     export BROWSER="lynx"
   fi
 fi
 
 # locales
-case $os in
+case $os_name in
   Linux|Darwin)
     export LANG="en_US.UTF-8"
     export LC_ALL="en_US.UTF-8"
@@ -180,12 +195,11 @@ case $os in
 esac
 
 # bash completion
-if [[ $os == "Linux" ]]; then
+if [[ $os_name == "Linux" ]]; then
   if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
   fi
-elif [[ $os == "Darwin" ]]; then
-  bash_version=$(echo "$BASH_VERSION" | cut -d '.' -f1)
+elif [[ $os_name == "Darwin" ]]; then
   if ((bash_version >= 5)); then
     if [[ -f ${HOME}/opt/pkg/bash-completion/bash_completion ]]; then
       . ${HOME}/opt/pkg/bash-completion/bash_completion
@@ -203,7 +217,7 @@ elif hash aws_completer 2>/dev/null; then
 fi
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
-if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os == "Darwin" ]]; then
+if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os_name == "Darwin" ]]; then
   if [[ $TERM == "xterm" ]]; then
     export TERM=xterm-256color
   fi
