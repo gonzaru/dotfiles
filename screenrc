@@ -60,7 +60,7 @@ shelltitle "$ |bash"
 # shell as login shell
 shell -${SHELL}
 
-# erase background with current bg color
+# erase background with current bg color (screen-256color-bce)
 defbce on
 
 # suppress trailing blank lines when scrolling
@@ -131,7 +131,7 @@ bind % eval 'split -v' 'focus right' screen
 # kill the region and the window at the same time
 bind & eval kill remove
 
-# copy to clipboard
+# copy to clipboard and primary
 bind Y eval "writebuf" "exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbcopy < /tmp/screen-exchange && exit 0 || [ -n $DISPLAY ] && xsel -bi < /tmp/screen-exchange && xsel -bo | xsel -pi'"
 
 # paste from clipboard
