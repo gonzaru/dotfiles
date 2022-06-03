@@ -23,14 +23,17 @@ defutf8 on
 # disable visual bell
 vbell off
 
-# disable flow
+# disable flow (xon, xoff)
 defflow off
+
+# disable multiuser mode (terminal sharing)
+multiuser off
 
 # default is 100
 defscrollback 10000
 
 # allows to switch region focus clicking with a mouse
-# mousetrack on
+# defmousetrack on
 
 # alternative screen (vim & others)
 altscreen on
@@ -54,6 +57,9 @@ termcapinfo xterm* ti@:te@
 # default current running shell
 defshell $SHELL
 
+#  change window titlte if the correct escape sequence exists
+defdynamictitle on
+
 # autorename window (see PROMPT_COMMAND in ~/.bashrc)
 shelltitle "$ |bash"
 
@@ -71,18 +77,16 @@ defbce on
 # W bright white foreground
 rendition so = KW
 
-# start with a new layout (none by default)
-# layout new initial
-
 # defescape is ^Aa
-# (C-a s) is default key for (xoff). (C-s s) it will send C-s to the terminal
-escape "^Ss"
+# (C-a q) is default key for (xon). (C-q q) it will send C-q to the terminal
+escape "^Qq"
 
 # reload configuration
 bind U eval "source ${HOME}/.screenrc" "echo 'Config reloaded!'"
 
-# focus next region (like tmux)
+# focus next/prev region (default is tab)
 bind o eval "focus next"
+bind ; eval "focus prev"
 
 # region class (movement, resize)
 bind R command -c myregion
@@ -100,13 +104,13 @@ bind -c myregion K eval "resize -v +5" "command -c myregion"
 bind -c myregion J eval "resize -v -5" "command -c myregion"
 bind -c myregion = eval "resize -l =" "command -c myregion"
 
-# layout class (conflicts with default key (C-a L) for login utmp database update)
+# layout class (conflicts with default login utmp key <C-a L>)
 bind L command -c mylayout
 bind -c mylayout c eval "layout new" "command -c mylayout" "echo 'Layout created'"
 bind -c mylayout n eval "layout next" "command -c mylayout"
 bind -c mylayout p eval "layout prev" "command -c mylayout"
 bind -c mylayout d eval "layout remove" "command -c mylayout" "echo 'Layout removed!'"
-bind -c mylayout g eval "command -c mylayout" "layout show"
+bind -c mylayout w eval "command -c mylayout" "layout show"
 bind -c mylayout "'" eval "command -c mylayout" "layout select"
 bind -c mylayout N eval "command -c mylayout" "layout title"
 bind -c mylayout a eval "command -c mylayout" "layout attach"
@@ -136,6 +140,22 @@ bind Y eval "writebuf" "exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREF
 
 # paste from clipboard
 bind P exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbpaste > /tmp/screen-exchange && screen -X readbuf && exit 0 || [ -n $DISPLAY ] && xsel -bo > /tmp/screen-exchange && screen -X readbuf'
+
+# limit the total number of windows created
+# maxwin 10
+
+# save regions automatically
+layout autosave on
+
+# start with a new layout (none by default)
+layout new default
+layout save default
+
+# window manager layout
+bind T eval "exec sh -c 'screen-wm'"
+# 15 enter, 177 backspace
+bind "\15" eval "exec sh -c 'screen-swap'"
+bind "\177" eval "exec sh -c 'screen-rotate'"
 
 # load local config
 # source "$HOME/.screenrc.local"
