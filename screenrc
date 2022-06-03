@@ -43,7 +43,10 @@ term screen-256color
 
 # (firstline, lastline alwaysfirstline, alwayslastline)
 # don't show status bar
-hardstatus off
+hardstatus ignore
+
+# remove text but keep the window divider
+caption string " "
 
 # inside screen <ESC> timeout (vim & others)
 maptimeout 5
@@ -102,6 +105,7 @@ bind -c myregion H eval "resize -h -5" "command -c myregion"
 bind -c myregion L eval "resize -h +5" "command -c myregion"
 bind -c myregion K eval "resize -v +5" "command -c myregion"
 bind -c myregion J eval "resize -v -5" "command -c myregion"
+bind -c myregion | eval "resize -l max" "command -c myregion"
 bind -c myregion = eval "resize -l =" "command -c myregion"
 
 # layout class (conflicts with default login utmp key <C-a L>)
@@ -127,10 +131,11 @@ bind -c mylayout 9 eval "layout select 9" "command -c mylayout" "layout title"
 
 # split horizontally, focus and create a new shell
 bind C eval split 'focus down' screen
+bind '^' eval split 'focus down' other 'focus up' screen
 
 # split vertically, focus and create a new shell
 bind V eval 'split -v' 'focus right' screen
-bind % eval 'split -v' 'focus right' screen
+bind % eval 'split -v' 'focus right' other 'focus left' screen
 
 # kill the region and the window at the same time
 bind & eval kill remove
@@ -145,11 +150,11 @@ bind P exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbp
 # maxwin 10
 
 # save regions automatically
-layout autosave on
+# layout autosave on
 
 # start with a new layout (none by default)
-layout new default
-layout save default
+# layout new default
+# layout save default
 
 # window manager layout
 bind T eval "exec sh -c 'screen-wm'"
