@@ -8,6 +8,12 @@ fi
 # bash version
 bash_version=${BASH_VERSION%%.*}
 
+# disable C-s (vim)
+stty -ixon
+
+# disable C-q (screen, tmux)
+stty -ixoff
+
 # checks the window size after each command
 shopt -s checkwinsize
 
@@ -75,11 +81,8 @@ if [[ $USER == "root" ]]; then
   export PS1="\w\e[0;31m\]#\[\e[0m "
 else
   # macOS arm64 with rosetta x86_64
-  if [[ $os_name == "Darwin" ]] && [[ $arch == "x86_64" ]] && [[ $os_version =~ "RELEASE_ARM64" ]]; then
-    export PS1="${arch}:\w\$ "
-  else
-    export PS1="\w\$ "
-  fi
+  rosseta_icon=$( [[ $os_name == "Darwin" ]] && [[ $arch == "x86_64" ]] && [[ $os_version =~ "RELEASE_ARM64" ]] && echo "${arch}:" || echo "")
+  export PS1="${rosseta_icon}\w\$ "
 fi
 
 # default
@@ -135,12 +138,17 @@ fi
 
 #  prompt command title (dwm, xmonad, wmii, etc..)
 case $TERM in
-  xterm|xterm-256color|screen|screen-256color|tmux|tmux-256color)
+  xterm|xterm-256color|screen|screen-256color|screen-256color-bce|tmux|tmux-256color)
     # remote ssh user@hostname
     if [[ -n $REMOTEHOST ]]; then
       export PROMPT_COMMAND='printf "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
     else
-      export PROMPT_COMMAND='printf "\033]0;${PWD/#${HOME}/\~}\007"'
+      # automatic screen window titles
+      if [[ -n "$STY" ]]; then
+        export PROMPT_COMMAND='printf "\033k\033\134\033]0;${PWD/#${HOME}/\~}\007"'
+      else
+        export PROMPT_COMMAND='printf "\033]0;${PWD/#${HOME}/\~}\007"'
+      fi
     fi
     ;;
 esac
