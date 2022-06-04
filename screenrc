@@ -11,7 +11,7 @@ debug off
 autodetach on
 
 # don't block the whole session if a window becomes unresponsible
-nonblock on
+defnonblock on
 
 # ignore case on searches in copy-mode
 ignorecase on
@@ -56,9 +56,6 @@ msgwait 1
 
 # scroll with mouse
 termcapinfo xterm* ti@:te@
-
-# default current running shell
-defshell $SHELL
 
 #  change window titlte if the correct escape sequence exists
 defdynamictitle on
