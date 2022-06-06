@@ -7,6 +7,9 @@ deflogin off
 # turns off runtime debugging
 debug off
 
+# don't notify background window activity
+defmonitor off
+
 # automatically detach on terminal hangup
 autodetach on
 
@@ -45,8 +48,11 @@ term screen-256color
 # don't show status bar
 hardstatus ignore
 
-# remove text but keep the window divider
-caption string " "
+# caption
+# default is "%3n %t" (number title)
+# caption always "%3n %t %h"
+caption splitonly "%3n"
+# caption string " "
 
 # inside screen <ESC> timeout (vim & others)
 maptimeout 5
@@ -58,7 +64,7 @@ msgwait 1
 termcapinfo xterm* ti@:te@
 
 #  change window titlte if the correct escape sequence exists
-defdynamictitle on
+defdynamictitle off
 
 # autorename window (see PROMPT_COMMAND in ~/.bashrc)
 shelltitle "$ |bash"
@@ -69,6 +75,9 @@ shell -${SHELL}
 # erase background with current bg color (screen-256color-bce)
 defbce on
 
+# the file to exchange information (readbuf, writebuf)
+bufferfile /tmp/${USER}-screen-exchange
+
 # suppress trailing blank lines when scrolling
 # compacthist on
 
@@ -77,6 +86,37 @@ defbce on
 # W bright white foreground
 rendition so = KW
 
+# limit the total number of windows created
+# maxwin 10
+
+# save regions automatically
+layout autosave on
+
+# start with a new default layout (none by default)
+layout new 0:default
+layout save default
+
+# wm layout
+layout new 1:wm
+
+# default layout
+layout select default
+
+# use last used layout when reattaching
+layout attach :last
+
+# window groups
+# screen -t root 0 //group
+# screen -t shells 1 //group
+# select root
+# screen -t servers 2 //group
+# screen -t server1 ssh user1@example.com
+# screen -t server2 ssh user2@example.com
+#
+# default window shell group
+# select shells
+# screen
+
 # defescape is ^Aa
 # (C-a q) is default key for (xon). (C-q q) it will send C-q to the terminal
 escape "^Qq"
@@ -84,9 +124,12 @@ escape "^Qq"
 # reload configuration
 bind U eval "source ${HOME}/.screenrc" "echo 'Config reloaded!'"
 
+# select root window group
+bind / eval "select root" "windowlist -g"
+
 # focus next/prev region (default is tab)
-bind o eval "focus next"
-bind ; eval "focus prev"
+bind o focus next
+bind ; focus prev
 
 # region class (movement, resize)
 bind R command -c myregion
@@ -138,26 +181,16 @@ bind % eval 'split -v' 'focus right' other 'focus left' screen
 bind & eval kill remove
 
 # copy to clipboard and primary
-bind Y eval "writebuf" "exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbcopy < /tmp/screen-exchange && exit 0 || [ -n $DISPLAY ] && xsel -bi < /tmp/screen-exchange && xsel -bo | xsel -pi'"
+bind Y eval "writebuf" "exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbcopy < /tmp/${USER}-screen-exchange && exit 0 || [ -n $DISPLAY ] && xsel -bi < /tmp/${USER}-screen-exchange && xsel -bo | xsel -pi'"
 
 # paste from clipboard
-bind P exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbpaste > /tmp/screen-exchange && screen -X readbuf && exit 0 || [ -n $DISPLAY ] && xsel -bo > /tmp/screen-exchange && screen -X readbuf'
-
-# limit the total number of windows created
-# maxwin 10
-
-# save regions automatically
-# layout autosave on
-
-# start with a new layout (none by default)
-# layout new default
-# layout save default
+bind P exec sh -c '[ $(uname -s) = "Darwin" ] && [ -z $X11_PREFS_DOMAIN ] && pbpaste > /tmp/${USER}-screen-exchange && screen -X readbuf && exit 0 || [ -n $DISPLAY ] && xsel -bo > /tmp/${USER}-screen-exchange && screen -X readbuf'
 
 # window manager layout
-bind T eval "exec sh -c 'screen-wm'"
+bind T exec sh -c 'screen-wm'
 # 15 enter, 177 backspace
-bind "\15" eval "exec sh -c 'screen-swap'"
-bind "\177" eval "exec sh -c 'screen-rotate'"
+bind "\15" exec sh -c 'screen-swap'
+bind "\177" exec sh -c 'screen-rotate'
 
 # load local config
 # source "$HOME/.screenrc.local"
