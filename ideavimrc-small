@@ -1,3 +1,4 @@
+" JetBrains IdeaVim
 if !has('ide')
   finish
 endif
@@ -21,7 +22,7 @@ set visualbell
 set scrolloff=5
 set sidescrolloff=5
 set notimeout
-set ideastatusicon=disabled
+set ideastatusicon=gray
 set ideawrite=all
 set ideajoin
 set ideamarks
@@ -97,4 +98,4 @@ nmap <C-i> <Action>(Forward)
 " nmap \* :nohlsearch<CR>
 
 " alternate file (:e #, :b #)
-nmap <C-6> <C-S-6>
+" nmap <C-6> <C-S-6>
