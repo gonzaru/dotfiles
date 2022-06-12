@@ -61,7 +61,7 @@ menu.bg: normal: black: lightgray
 menu.frame: normal: black: lightgray
 menu.entry: normal: lightgray: black
 menu.n: normal: red: gray
-menu.active: normal: yellow: black
+menu.active: normal: brightcyan: black
 menu.sb: normal: brightred: lightgray
 
 forwbackw.arrow:reverse
