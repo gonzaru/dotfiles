@@ -12,30 +12,30 @@ default: normal: white:black
 #
 # The next line (beginning with "em") means: use bold if mono, otherwise
 # brightblue on <defaultbackground>
-em: bold: brightblue
-strong: bold: brightcyan
+em: bold: lightgray: bold
+strong: bold: gray: bold
 b: bold: lightgray
-i: bold: brightcyan
-a: bold: gray
-img: dim: cyan
+i: bold: lightgray: bold
+a: bold: lightgray: bold
+img: dim: gray: bold
 fig: normal: gray
 caption: reverse: gray
 hr: normal: white
-blockquote: normal: brightblue
+blockquote: normal: white
 ul: normal: brown
 address: normal: magenta
-title: normal: black: lightgray
+title: normal: gray: bold
 tt: dim: brightmagenta: black
-h1: bold: black: lightgray
-label: normal: brightcyan
-q: normal: black: brightcyan
+h1: bold: gray: bold
+label: normal: gray: bold
+q: normal: lightgray: bold
 small: dim: default
 big: bold: yellow
 sup: bold: gray
 sub: dim: gray
-li: normal: lightgray
-code: normal: cyan
-cite: normal: cyan
+li: normal: gray
+code: normal: lightgray: bold
+cite: normal: white
 
 table: normal: brightcyan
 tr: bold: gray
