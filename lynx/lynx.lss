@@ -33,7 +33,7 @@ small: dim: default
 big: bold: yellow
 sup: bold: gray
 sub: dim: gray
-li: normal: gray
+li: normal: white
 code: normal: lightgray: bold
 cite: normal: white
 
