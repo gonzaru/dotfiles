@@ -19,7 +19,7 @@ i: bold: brightcyan
 a: bold: gray
 img: dim: cyan
 fig: normal: gray
-caption: reverse: brown
+caption: reverse: gray
 hr: normal: white
 blockquote: normal: brightblue
 ul: normal: brown
@@ -31,14 +31,14 @@ label: normal: brightcyan
 q: normal: black: brightcyan
 small: dim: default
 big: bold: yellow
-sup: bold: yellow
+sup: bold: gray
 sub: dim: gray
 li: normal: lightgray
 code: normal: cyan
 cite: normal: cyan
 
 table: normal: brightcyan
-tr: bold: brown
+tr: bold: gray
 td: normal: default
 br: normal: default
 
