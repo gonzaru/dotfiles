@@ -78,7 +78,7 @@ strong.b: bold: white: red
 em.b: reverse: white: blue
 strong.debug: reverse: green
 font.letter: normal: white: blue
-input.submit: normal: cyan
+input.submit: normal: gray: bold
 tr.baone: bold: yellow
 tr.batwo: bold: green
 tr.bathree: bold: red
