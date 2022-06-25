@@ -113,6 +113,7 @@ PLAN9="${HOME}/opt/plan9" && [[ -d $PLAN9 ]] && export PLAN9
 # go
 GOROOT="${HOME}/opt/go" && [[ -d $GOROOT ]] && export GOROOT
 GOPATH="${HOME}/go" && [[ -d $GOPATH ]] && export GOPATH
+GOBIN="${GOPATH}/bin" && [[ -d $GOBIN ]] && export GOBIN
 [[ -d ${GOROOT}/bin ]] && PATH="${PATH}:${GOROOT}/bin"
 [[ -d ${GOPATH}/bin ]] && PATH="${PATH}:${GOPATH}/bin"
 
@@ -177,12 +178,12 @@ if [[ $PAGER == "most" ]]; then
 fi
 
 # default non X graphical browser
-if [[ $os_name != "Darwin" && -z $DISPLAY ]]; then
-  if hash links 2>/dev/null; then
-    export BROWSER="links"
-  elif hash lynx 2>/dev/null; then
-    export BROWSER="lynx"
-  fi
+if hash ise 2>/dev/null; then
+  export BROWSER="ise"
+elif hash lynx 2>/dev/null; then
+  export BROWSER="lynx"
+elif hash links 2>/dev/null; then
+  export BROWSER="links"
 fi
 
 # locales
@@ -225,8 +226,8 @@ elif hash aws_completer 2>/dev/null; then
 fi
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
-if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os_name == "Darwin" ]]; then
-  if [[ $TERM == "xterm" ]]; then
-    export TERM=xterm-256color
-  fi
-fi
+# if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os_name == "Darwin" ]]; then
+#   if [[ $TERM == "xterm" ]]; then
+#     export TERM=xterm-256color
+#   fi
+# fi

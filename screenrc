@@ -44,6 +44,11 @@ altscreen on
 # 256-color palette support
 term screen-256color
 
+# control variables to know where the screen comes from
+setenv SCREEN_PARENT_TERM_PROGRAM $TERM_PROGRAM
+setenv SCREEN_PARENT_XTERM_VERSION $XTERM_VERSION
+setenv SCREEN_PARENT_ALACRITTY_SOCKET $ALACRITTY_SOCKET
+
 # (firstline, lastline alwaysfirstline, alwayslastline)
 # don't show status bar
 hardstatus ignore
@@ -72,8 +77,8 @@ shelltitle "$ |bash"
 # shell as login shell
 shell -${SHELL}
 
-# erase background with current bg color (screen-256color-bce)
-defbce on
+# erase background with current bg color (sets $TERM as screen-256color-bce)
+defbce off
 
 # the file to exchange information (readbuf, writebuf)
 bufferfile /tmp/${USER}-screen-exchange

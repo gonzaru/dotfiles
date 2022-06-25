@@ -18,13 +18,16 @@ XTerm*background: black
 XTerm*foreground: white
 XTerm*loginShell: false
 XTerm*cursorBlink: true
-XTerm*cursorColor: #5f6060
+!XTerm*cursorColor: #8888cc
+XTerm*cursorColor: #606060
+!XTerm*cursorUnderLine: true
 XTerm*cursorUnderLine: false
 XTerm*pointerColor: white
 XTerm*saveLines: 2048
 XTerm*scrollBar: false
 XTerm*logInhibit: true
 XTerm*utmpInhibit: true
+!XTerm*titeInhibit: true
 XTerm*titeInhibit: false
 
 ! UXTERM (xterm -u8)
@@ -37,11 +40,14 @@ UXTerm*background: black
 UXTerm*foreground: white
 UXTerm*loginShell: false
 UXTerm*cursorBlink: true
-UXTerm*cursorColor: #5f6060
+!UXTerm*cursorColor: #8888cc
+UXTerm*cursorColor: #606060
+!UXTerm*cursorUnderLine: true
 UXTerm*cursorUnderLine: false
 UXTerm*pointerColor: white
 UXTerm*saveLines: 2048
 UXTerm*scrollBar: false
 UXTerm*logInhibit: true
 UXTerm*utmpInhibit: true
+!UXTerm*titeInhibit: true
 UXTerm*titeInhibit: false
