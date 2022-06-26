@@ -45,6 +45,7 @@ altscreen on
 term screen-256color
 
 # control variables to know where the screen comes from
+setenv SCREEN_PARENT_TERM $TERM
 setenv SCREEN_PARENT_TERM_PROGRAM $TERM_PROGRAM
 setenv SCREEN_PARENT_XTERM_VERSION $XTERM_VERSION
 setenv SCREEN_PARENT_ALACRITTY_SOCKET $ALACRITTY_SOCKET
