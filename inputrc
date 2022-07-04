@@ -7,5 +7,4 @@ set show-all-if-ambiguous on
 set visible-stats on
 set enable-bracketed-paste off
 set revert-all-at-newline on
-# tab for macOS case insensitive filesystem
 set completion-ignore-case on
