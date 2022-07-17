@@ -186,6 +186,13 @@ elif hash links 2>/dev/null; then
   export BROWSER="links"
 fi
 
+# fzf
+if hash 2>/dev/null fd; then
+  export FZF_DEFAULT_COMMAND="fd --type f --follow --no-ignore --strip-cwd-prefix --color=never"
+elif hash 2>/dev/null rg; then
+  export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --color=never"
+fi
+
 # locales
 case $os_name in
   Linux|Darwin)
