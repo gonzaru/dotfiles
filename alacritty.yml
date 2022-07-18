@@ -106,7 +106,7 @@ selection:
 
 # use tmux as shell
 shell:
-  program: /Users/ruben/opt/bin/tmux
+  program: /opt/local/bin/tmux
   args:
     - new-session
     - -A
@@ -153,11 +153,11 @@ key_bindings:
   - {key: L, mods: Alt|Shift, chars: "\eL"}
   - {key: M, mods: Alt, chars: "\em"}
   - {key: M, mods: Alt|Shift, chars: "\eM"}
-  - {key: N, mods: Alt, chars: "\en"} # tmux
+  - {key: N, mods: Alt, chars: "\en"}                  # tmux
   - {key: N, mods: Alt|Shift, chars: "\eN"}
-  - {key: O, mods: Alt, chars: "\eo"} # tmux
+  - {key: O, mods: Alt, chars: "\eo"}                  # tmux
   - {key: O, mods: Alt|Shift, chars: "\eO"}
-  - {key: P, mods: Alt, chars: "\ep"} # tmux
+  - {key: P, mods: Alt, chars: "\ep"}                  # tmux
   - {key: P, mods: Alt|Shift, chars: "\eP"}
   - {key: Q, mods: Alt, chars: "\eq"}
   - {key: Q, mods: Alt|Shift, chars: "\eQ"}
@@ -179,45 +179,45 @@ key_bindings:
   - {key: Y, mods: Alt|Shift, chars: "\eY"}
   - {key: Z, mods: Alt, chars: "\ez"}
   - {key: Z, mods: Alt|Shift, chars: "\eZ"}
-  - {key: Key0, mods: Alt, chars: "\e0"} # tmux 1-5
-  - {key: Key0, mods: Alt|Shift, chars: "\e)"} # Alt + )
+  - {key: Key0, mods: Alt, chars: "\e0"}               # tmux 1-5
+  - {key: Key0, mods: Alt|Shift, chars: "\e)"}         # Alt + )
   - {key: Key1, mods: Alt, chars: "\e1"}
-  - {key: Key1, mods: Alt|Shift, chars: "\e!"} # Alt + !
+  - {key: Key1, mods: Alt|Shift, chars: "\e!"}         # Alt + !
   - {key: Key2, mods: Alt, chars: "\e2"}
-  - {key: Key2, mods: Alt|Shift, chars: "\e@"} # Alt + @
+  - {key: Key2, mods: Alt|Shift, chars: "\e@"}         # Alt + @
   - {key: Key3, mods: Alt, chars: "\e3"}
-  - {key: Key3, mods: Alt|Shift, chars: "\e#"} # Alt + #
+  - {key: Key3, mods: Alt|Shift, chars: "\e#"}         # Alt + #
   - {key: Key4, mods: Alt, chars: "\e4"}
-  - {key: Key4, mods: Alt|Shift, chars: "\e$"} # Alt + $
+  - {key: Key4, mods: Alt|Shift, chars: "\e$"}         # Alt + $
   - {key: Key5, mods: Alt, chars: "\e5"}
-  - {key: Key5, mods: Alt|Shift, chars: "\e%"} # Alt + %
+  - {key: Key5, mods: Alt|Shift, chars: "\e%"}         # Alt + %
   - {key: Key6, mods: Alt, chars: "\e6"}
-  - {key: Key6, mods: Alt|Shift, chars: "\e^"} # Alt + ^
+  - {key: Key6, mods: Alt|Shift, chars: "\e^"}         # Alt + ^
   - {key: Key7, mods: Alt, chars: "\e7"}
-  - {key: Key7, mods: Alt|shift, chars: "\e&"} # Alt + &
+  - {key: Key7, mods: Alt|shift, chars: "\e&"}         # Alt + &
   - {key: Key8, mods: Alt, chars: "\e8"}
-  - {key: Key8, mods: Alt|Shift, chars: "\e*"} # Alt + *
+  - {key: Key8, mods: Alt|Shift, chars: "\e*"}         # Alt + *
   - {key: Key9, mods: Alt, chars: "\e9"}
-  - {key: Key9, mods: Alt|Shift, chars: "\e("} # Alt + (
-  - {key: Slash, mods: Alt, chars: "\e/"} # Alt + /
-  - {key: Slash, mods: Alt|Shift, chars: "\e?"} # Alt + ?
-  - {key: Period, mods: Alt, chars: "\e."} # Alt + .
-  - {key: Period, mods: Alt|Shift, chars: "\e>"} # Alt + >
-  - {key: Comma, mods: Alt, chars: "\e,"} # Alt + ,
-  - {key: Comma, mods: Alt|Shift, chars: "\e<"} # Alt + <
-  - {key: Grave, mods: Alt, chars: "\e`"} # Alt + ` 
-  - {key: Grave, mods: Alt|Shift, chars: "\e~"} # Alt + ~
-  - {key: Minus, mods: Alt|Shift, chars: "\e_"} # Alt + _
-  - {key: Backslash, mods: Alt, chars: "\e\\"} # Alt + \
-  - {key: Backslash, mods: Alt|Shift, chars: "\e|"} # Alt + |
-  - {key: Semicolon, mods: Alt, chars: "\e;"} # Alt + ;
-  - {key: Semicolon, mods: Alt|Shift, chars: "\e:"} # Alt + :
-  - {key: Apostrophe, mods: Alt, chars: "\e'"} # Alt + '
-  - {key: Apostrophe, mods: Alt|Shift, chars: "\e\""} # Alt + "
-  - {key: LBracket, mods: Alt, chars: "\e["} # Alt + [
-  - {key: LBracket, mods: Alt|Shift, chars: "\e{"} # Alt + {
-  - {key: RBracket, mods: Alt, chars: "\e]"} # Alt + ]
-  - {key: RBracket, mods: Alt|Shift, chars: "\e}"} # Alt + }
+  - {key: Key9, mods: Alt|Shift, chars: "\e("}         # Alt + (
+  - {key: Slash, mods: Alt, chars: "\e/"}              # Alt + /
+  - {key: Slash, mods: Alt|Shift, chars: "\e?"}        # Alt + ?
+  - {key: Period, mods: Alt, chars: "\e."}             # Alt + .
+  - {key: Period, mods: Alt|Shift, chars: "\e>"}       # Alt + >
+  - {key: Comma, mods: Alt, chars: "\e,"}              # Alt + ,
+  - {key: Comma, mods: Alt|Shift, chars: "\e<"}        # Alt + <
+  - {key: Grave, mods: Alt, chars: "\e`"}              # Alt + `
+  - {key: Grave, mods: Alt|Shift, chars: "\e~"}        # Alt + ~
+  - {key: Minus, mods: Alt|Shift, chars: "\e_"}        # Alt + _
+  - {key: Backslash, mods: Alt, chars: "\e\\"}         # Alt + \
+  - {key: Backslash, mods: Alt|Shift, chars: "\e|"}    # Alt + |
+  - {key: Semicolon, mods: Alt, chars: "\e;"}          # Alt + ;
+  - {key: Semicolon, mods: Alt|Shift, chars: "\e:"}    # Alt + :
+  - {key: Apostrophe, mods: Alt, chars: "\e'"}         # Alt + '
+  - {key: Apostrophe, mods: Alt|Shift, chars: "\e\""}  # Alt + "
+  - {key: LBracket, mods: Alt, chars: "\e["}           # Alt + [
+  - {key: LBracket, mods: Alt|Shift, chars: "\e{"}     # Alt + {
+  - {key: RBracket, mods: Alt, chars: "\e]"}           # Alt + ]
+  - {key: RBracket, mods: Alt|Shift, chars: "\e}"}     # Alt + }
 mouse_bindings:
   # paste with mouse wheel
   - {mouse: Middle, action: PasteSelection}
