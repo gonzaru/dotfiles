@@ -40,8 +40,8 @@ fi
 # color for (grep, fgrep, egrep)
 if [[ $grep_color == 1 ]]; then
   alias grep="grep --color=auto"
-  alias fgrep="fgrep --color=auto"
-  alias egrep="egrep --color=auto"
+  alias fgrep="grep -F --color=auto"
+  alias egrep="grep -E --color=auto"
   export GREP_COLOR="31"  # red
 fi
 
@@ -56,11 +56,12 @@ if [[ $VIMRUNTIME =~ "MacVim" ]]; then
   alias gvim="vim"
   alias view='vim'
   alias rview='vim'
-else
-  alias vim="vim -u ~/.vimrc"
-  alias gvim="gvim -u ~/.vimrc"
-  alias view="view -u ~/.vimrc"
-  alias rview="rview -u ~/.vimrc"
+# else
+  # looks like some vim version does not work with this
+  # alias vim="vim -u ~/.vim/vimrc"
+  # alias gvim="gvim -u ~/.vim/vimrc"
+  # alias view="view -u ~/.vim/vimrc"
+  # alias rview="rview -u ~/.vim/vimrc"
 fi
 
 # emacs (without gui)
@@ -230,6 +231,11 @@ if [[ -f ${AWS}/bin/aws_completer ]]; then
   complete -C "${AWS}/bin/aws_completer" aws
 elif hash aws_completer 2>/dev/null; then
   complete -C "$(command -v aws_completer)" aws
+fi
+
+# completion extra tools
+if [[ $os_name == "Darwin" ]]; then
+  complete -A command caffeinate
 fi
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
