@@ -4,8 +4,8 @@ if !has('ide')
 endif
 
 " settings
-set showcmd
-set showmode
+set noshowcmd
+set noshowmode
 set number
 set relativenumber
 set clipboard^=unnamed,unnamedplus
@@ -31,22 +31,24 @@ set idearefactormode=select
 set ideavimsupport=
 set nodigraph
 
-" puglins
+" plugins
 " set NERDTree
 
 " full ide
-sethandler <C-\> a:ide
 " https://vim.fandom.com/wiki/Unused_keys
-" <C-q> unused, all modes
-sethandler <C-q> a:ide
 " <C-s> unused, all modes
 sethandler <C-s> a:ide
-sethandler <C-2> a:ide
-sethandler <C-S-2> a:ide
+" <C-q> unused, all modes
+sethandler <C-q> a:ide
 " <C-k> commit idea vim, does nothing in Vim normal, digraph in insert
 sethandler <C-k> n:ide
 " <C-j> same as enter
 sethandler <C-j> a:ide
+" <C-z> unused insert, command
+sethandler <C-z> a:ide
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+sethandler <C-\> a:ide
 
 " mix ide & vim
 " <C-n> (same as j)
@@ -83,11 +85,9 @@ sethandler <C-]> a:vim
 sethandler <C-6> a:vim
 sethandler <C-S-6> a:vim
 
-" maps / sethandler
+" maps
 imap <C-n> <Action>(HippieCompletion)
 imap <C-p> <Action>(HippieBackwardCompletion)
-
-" maps
 imap <C-x><C-o> <Action>(CodeCompletion)
 imap <C-x><C-i> <Action>(SmartTypeCompletion)
 imap <C-x><C-u> <Action>(CodeCompletionGroup)
@@ -95,9 +95,19 @@ imap <C-x><C-c> <Action>(ClassNameCompletion)
 
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
-" nmap <C-S-g> :!echo %<CR>
 nmap <C-S-g> :!echo % \| sed "s#${HOME}#~#"<CR>
 " nmap \* :nohlsearch<CR>
 
 " alternate file (:e #, :b #)
 " nmap <C-6> <C-S-6>
+
+" commands
+command! Changes action RecentChanges
+command! Format action ReformatCode
+command! Git action Vcs.QuickListPopupAction
+" default ide <C-t>
+command! GitUpdateProject action Vcs.UpdateProject
+command! Only action HideAllWindows
+command! Open action OpenFile
+command! Run action Run
+command! Settings action ShowSettings
