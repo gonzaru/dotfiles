@@ -95,6 +95,8 @@ imap <C-x><C-c> <Action>(ClassNameCompletion)
 
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
+" nmap <C-S-g> :!echo %<CR>
+nmap <C-S-g> :!echo % \| sed "s#${HOME}#~#"<CR>
 " nmap \* :nohlsearch<CR>
 
 " alternate file (:e #, :b #)
