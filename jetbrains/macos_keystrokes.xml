@@ -1,4 +1,8 @@
 <keymap version="1" name="macOS custom" parent="Mac OS X 10.5+">
+  <action id="$SelectAll">
+    <keyboard-shortcut first-keystroke="meta a" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl a" />
+  </action>
   <action id="ActivateDatabaseToolWindow">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl d" />
   </action>
@@ -27,11 +31,19 @@
     <keyboard-shortcut first-keystroke="shift meta divide" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl slash" />
   </action>
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="meta slash" />
+    <keyboard-shortcut first-keystroke="meta divide" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl slash" />
+  </action>
   <action id="Console.TableResult.SetDefault" />
   <action id="Diff.NextChange" />
   <action id="Diff.PrevChange" />
+  <action id="Editor SelectAll">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl a" />
+  </action>
   <action id="EditorActions">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl slash" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl period" />
   </action>
   <action id="EditorCodeBlockEnd">
     <keyboard-shortcut first-keystroke="meta alt close_bracket" />
@@ -48,7 +60,7 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl x" />
   </action>
   <action id="EditorDecreaseFontSize">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl i" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt minus" />
   </action>
   <action id="EditorDeleteToLineEnd">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl y" />
@@ -57,10 +69,14 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl y" />
   </action>
   <action id="EditorIncreaseFontSize">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt equals" />
   </action>
   <action id="EditorResetFontSize">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl 0" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt 0" />
+  </action>
+  <action id="EditorScrollToCenter">
+    <keyboard-shortcut first-keystroke="ctrl l" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl m" />
   </action>
   <action id="EditorSelectWord">
     <keyboard-shortcut first-keystroke="alt up" />
@@ -83,9 +99,36 @@
     <keyboard-shortcut first-keystroke="meta f" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl f" />
   </action>
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="meta g" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl l" />
+  </action>
   <action id="GotoAction" />
   <action id="GotoBookmark1">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl 1" />
+  </action>
+  <action id="GotoBookmark6">
+    <keyboard-shortcut first-keystroke="ctrl 6" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl 6" />
+  </action>
+  <action id="GotoDeclaration">
+    <keyboard-shortcut first-keystroke="meta b" />
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="Force touch" />
+    <mouse-shortcut keystroke="button2" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl b" />
+  </action>
+  <action id="GotoLine">
+    <keyboard-shortcut first-keystroke="meta l" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl g" />
+  </action>
+  <action id="GotoSuperMethod">
+    <keyboard-shortcut first-keystroke="meta u" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl u" />
+  </action>
+  <action id="ImplementMethods">
+    <keyboard-shortcut first-keystroke="ctrl i" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
   </action>
   <action id="Jdbc.OpenConsole.New" />
   <action id="Jdbc.OpenConsole.New.Generate" />
@@ -104,7 +147,13 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl close_bracket" />
   </action>
+  <action id="NotebookSelectCellAboveAction" />
+  <action id="NotebookSelectCellBelowAction" />
   <action id="OpenFile">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl e" />
+  </action>
+  <action id="OverrideMethods">
+    <keyboard-shortcut first-keystroke="ctrl o" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl o" />
   </action>
   <action id="PreviousEditorTab" />
@@ -128,6 +177,10 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl f10" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl s" />
   </action>
+  <action id="ShowUsages">
+    <keyboard-shortcut first-keystroke="meta alt f7" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl 7" />
+  </action>
   <action id="SplitHorizontally">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl quote" />
   </action>
@@ -146,6 +199,10 @@
   <action id="StretchSplitToTop">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl k" />
   </action>
+  <action id="ToggleBookmark6">
+    <keyboard-shortcut first-keystroke="shift ctrl 6" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl 6" />
+  </action>
   <action id="ToggleDistractionFreeMode">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl z" />
   </action>
@@ -161,6 +218,10 @@
   <action id="Tool_External Tools_gVim">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl g" />
   </action>
+  <action id="TypeHierarchyBase.BaseOnThisType">
+    <keyboard-shortcut first-keystroke="ctrl h" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl h" />
+  </action>
   <action id="Unsplit">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl minus" />
   </action>
@@ -169,20 +230,24 @@
   </action>
   <action id="UsageGrouping.FileStructure" />
   <action id="Vcs.MoveChangedLinesToChangelist" />
-  <action id="ViewMainMenu">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl m" />
-  </action>
-  <action id="ViewNavigationBar">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl b" />
-  </action>
-  <action id="ViewStatusBar">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl b" />
-  </action>
-  <action id="ViewToolBar">
+  <action id="Vcs.UpdateProject">
+    <keyboard-shortcut first-keystroke="meta t" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl t" />
   </action>
+  <action id="ViewMainMenu">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl alt m" />
+  </action>
+  <action id="ViewNavigationBar">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt b" />
+  </action>
+  <action id="ViewStatusBar">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl alt b" />
+  </action>
+  <action id="ViewToolBar">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl alt t" />
+  </action>
   <action id="ViewToolButtons">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl t" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt t" />
   </action>
   <action id="VimActions">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl v" />
