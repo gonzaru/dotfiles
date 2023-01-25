@@ -8,12 +8,15 @@ set noshowcmd
 set noshowmode
 set number
 set relativenumber
+set more
 set clipboard^=unnamed,unnamedplus
+set matchpairs=(:),{:},[:]
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set nostartofline
+set nrformats-=octal
 set undolevels=1000
 set history=500
 " set novisualbell
@@ -22,6 +25,8 @@ set visualbell
 set scrolloff=5
 set sidescrolloff=5
 set notimeout
+set nodigraph
+set nogdefault
 set ideastatusicon=gray
 set ideawrite=all
 set ideajoin
@@ -29,7 +34,6 @@ set ideamarks
 set keymodel=startsel,stopsel,continueselect,stopselect
 set idearefactormode=select
 set ideavimsupport=
-set nodigraph
 
 " plugins
 " set NERDTree
@@ -102,12 +106,55 @@ nmap <C-S-g> :!echo % \| sed "s#${HOME}#~#"<CR>
 " nmap <C-6> <C-S-6>
 
 " commands
+
+" general
+command! Bookmarks action ShowBookmarks
+command! Build action CompileDirty
 command! Changes action RecentChanges
+command! Find action Find
+command! FindAll action FindInPath
+command! FindWord action FindUsages
 command! Format action ReformatCode
 command! Git action Vcs.QuickListPopupAction
-" default ide <C-t>
 command! GitUpdateProject action Vcs.UpdateProject
+command! Hide action HideAllWindows
+command! Hierarchy action CallHierarchy
+" <A-Home>
+" command! NavBar action ServiceView.JumpToServices
 command! Only action HideAllWindows
 command! Open action OpenFile
+command! Rebuild action Compile
+command! Refactor action Refactorings.QuickListPopupAction
+command! Replace action Replace
+command! ReplaceAll action ReplaceInPath
 command! Run action Run
+command! Save action SaveAll
+command! Scheme action QuickChangeScheme
 command! Settings action ShowSettings
+command! Signature action ChangeSignature
+
+" Go
+command! GoBuild action CompileDirty
+command! GoDef action GotoDeclaration
+command! GoDefType action GotoTypeDeclaration
+" <C-q>
+" command! GoDoc action QuickJavaDoc
+command! GoDocBrowser action ExternalJavaDoc
+command! GoFmt action GoFmtFileAction
+command! GoFmtAll action GoFmtProjectAction
+command! GoFmtProject action GoFmtProjectAction
+command! GoGenerate action GoGenerateFileAction
+command! GoImpl action GotoImplementation
+command! GoImplements action ImplementMethods
+" command! GoImports action GoImportsFileAction
+command! GoImports action OptimizeImports
+command! GoInfo action QuickImplementations
+command! GoNew action Go.NewGoFile
+command! GoPlay action GoShareInPlaygroundAction
+command! GoRename action RenameElement
+command! GoRun action Run
+command! GoSameIds action HighlightUsagesInFile
+command! GoVet action GoVetFileAction
+
+" IdeaVim
+command! VimReload action IdeaVim.ReloadVimRc.reload
