@@ -29,6 +29,7 @@ XTerm*logInhibit: true
 XTerm*utmpInhibit: true
 !XTerm*titeInhibit: true
 XTerm*titeInhibit: false
+!XTerm*selectToClipboard: true
 
 ! UXTERM (xterm -u8)
 UXTerm*utf8Title: true
@@ -51,3 +52,4 @@ UXTerm*logInhibit: true
 UXTerm*utmpInhibit: true
 !UXTerm*titeInhibit: true
 UXTerm*titeInhibit: false
+!UXTerm*selectToClipboard: true
