@@ -43,7 +43,7 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl a" />
   </action>
   <action id="EditorActions">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl period" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl back_slash" />
   </action>
   <action id="EditorCodeBlockEnd">
     <keyboard-shortcut first-keystroke="meta alt close_bracket" />
@@ -103,6 +103,10 @@
     <keyboard-shortcut first-keystroke="meta g" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl l" />
   </action>
+  <action id="FindUsages">
+    <keyboard-shortcut first-keystroke="alt f7" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl f" />
+  </action>
   <action id="GotoAction" />
   <action id="GotoBookmark1">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl 1" />
@@ -126,6 +130,10 @@
     <keyboard-shortcut first-keystroke="meta u" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl u" />
   </action>
+  <action id="HighlightUsagesInFile">
+    <keyboard-shortcut first-keystroke="shift meta f7" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl 8" />
+  </action>
   <action id="ImplementMethods">
     <keyboard-shortcut first-keystroke="ctrl i" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
@@ -141,11 +149,15 @@
   <action id="MaximizeEditorInSplit">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl equals" />
   </action>
-  <action id="MethodDown" />
-  <action id="MethodUp" />
+  <action id="MethodDown">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl close_bracket" />
+  </action>
+  <action id="MethodUp">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl open_bracket" />
+  </action>
   <action id="NextEditorTab" />
   <action id="NextTab">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl close_bracket" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl period" />
   </action>
   <action id="NotebookSelectCellAboveAction" />
   <action id="NotebookSelectCellBelowAction" />
@@ -158,7 +170,7 @@
   </action>
   <action id="PreviousEditorTab" />
   <action id="PreviousTab">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl open_bracket" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl comma" />
   </action>
   <action id="RecentFiles">
     <keyboard-shortcut first-keystroke="meta e" />
@@ -179,7 +191,7 @@
   </action>
   <action id="ShowUsages">
     <keyboard-shortcut first-keystroke="meta alt f7" />
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl 7" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt f" />
   </action>
   <action id="SplitHorizontally">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl quote" />
