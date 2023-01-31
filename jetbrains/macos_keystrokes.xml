@@ -68,6 +68,11 @@
   <action id="EditorDeleteToLineStart">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl y" />
   </action>
+  <action id="EditorDown">
+    <keyboard-shortcut first-keystroke="down" />
+    <keyboard-shortcut first-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl n" />
+  </action>
   <action id="EditorIncreaseFontSize">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt equals" />
   </action>
@@ -89,11 +94,16 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl n" />
   </action>
   <action id="EditorToggleShowLineNumbers">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt n" />
   </action>
   <action id="EditorUnSelectWord">
     <keyboard-shortcut first-keystroke="alt down" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl w" />
+  </action>
+  <action id="EditorUp">
+    <keyboard-shortcut first-keystroke="up" />
+    <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl p" />
   </action>
   <action id="Find">
     <keyboard-shortcut first-keystroke="meta f" />
@@ -181,7 +191,7 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl r" />
   </action>
   <action id="SelectInProjectView">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt p" />
   </action>
   <action id="ShowContent" />
   <action id="ShowPopupMenu">
