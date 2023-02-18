@@ -140,7 +140,7 @@ fi
 
 #  prompt command title (dwm, xmonad, wmii, etc..)
 case $TERM in
-  xterm|xterm-256color|screen|screen-256color|screen-256color-bce|tmux|tmux-256color)
+  xterm|xterm-256color|screen|screen-256color|screen-256color-bce|tmux|tmux-256color|alacritty)
     # remote ssh user@hostname
     if [[ -n $REMOTEHOST ]]; then
       export PROMPT_COMMAND='printf "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
@@ -178,8 +178,10 @@ if [[ $PAGER == "most" ]]; then
   export MANCOLOR
 fi
 
-# default non X graphical browser
-if hash ise 2>/dev/null; then
+# default browser
+if hash firefox 2>/dev/null; then
+  export BROWSER="firefox"
+elif hash ise 2>/dev/null; then
   export BROWSER="ise"
 elif hash lynx 2>/dev/null; then
   export BROWSER="lynx"
@@ -188,9 +190,9 @@ elif hash links 2>/dev/null; then
 fi
 
 # fzf
-if hash 2>/dev/null fd; then
+if hash fd 2>/dev/null; then
   export FZF_DEFAULT_COMMAND="fd --type f --follow --no-ignore --strip-cwd-prefix --color=never"
-elif hash 2>/dev/null rg; then
+elif hash rg 2>/dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files --no-ignore --follow --color=never"
 fi
 
@@ -237,10 +239,11 @@ fi
 if [[ $os_name == "Darwin" ]]; then
   complete -A command caffeinate
 fi
+complete -A directory -A file tig
 
 # enable xterm 256 colors (vim, tmux, tig, etc..)
-# if [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os_name == "Darwin" ]]; then
-#   if [[ $TERM == "xterm" ]]; then
-#     export TERM=xterm-256color
-#   fi
-# fi
+if [[ -z $TMUX ]] && [[ -f /usr/share/terminfo/x/xterm-256color || -f /lib/terminfo/x/xterm-256color || $os_name == "Darwin" ]]; then
+  if [[ $TERM == "xterm" ]]; then
+    export TERM=xterm-256color
+  fi
+fi
