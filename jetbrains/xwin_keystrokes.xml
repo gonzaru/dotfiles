@@ -62,6 +62,7 @@
   <action id="EditorDown">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl j" />
   </action>
   <action id="EditorIncreaseFontSize">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt equals" />
@@ -136,6 +137,9 @@
   <action id="ImplementMethods">
     <keyboard-shortcut first-keystroke="ctrl i" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
+  </action>
+  <action id="InsertLiveTemplate">
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl space" />
   </action>
   <action id="MainMenu">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl back_space" />
