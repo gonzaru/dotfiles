@@ -72,6 +72,7 @@
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="ctrl n" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl j" />
   </action>
   <action id="EditorIncreaseFontSize">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt equals" />
@@ -148,6 +149,10 @@
     <keyboard-shortcut first-keystroke="ctrl i" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
   </action>
+  <action id="InsertLiveTemplate">
+    <keyboard-shortcut first-keystroke="meta j" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl space" />
+  </action>
   <action id="Jdbc.OpenConsole.New" />
   <action id="Jdbc.OpenConsole.New.Generate" />
   <action id="MainMenu">
@@ -165,6 +170,14 @@
   <action id="MethodUp">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl open_bracket" />
   </action>
+  <action id="MoveLineDown">
+    <keyboard-shortcut first-keystroke="shift alt down" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl j" />
+  </action>
+  <action id="MoveLineUp">
+    <keyboard-shortcut first-keystroke="shift alt up" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl k" />
+  </action>
   <action id="NextEditorTab" />
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl period" />
@@ -181,6 +194,11 @@
   <action id="PreviousEditorTab" />
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl comma" />
+  </action>
+  <action id="QuickJavaDoc">
+    <keyboard-shortcut first-keystroke="f1" />
+    <mouse-shortcut keystroke="control button2" />
+    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl v" />
   </action>
   <action id="RecentFiles">
     <keyboard-shortcut first-keystroke="meta e" />
