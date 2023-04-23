@@ -42,7 +42,7 @@ if [[ $grep_color == 1 ]]; then
   alias grep="grep --color=auto"
   alias fgrep="grep -F --color=auto"
   alias egrep="grep -E --color=auto"
-  export GREP_COLOR="31"  # red
+  export GREP_COLORS="mt=31" # red
 fi
 
 # interactive confirm
