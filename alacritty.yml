@@ -116,7 +116,7 @@ shell:
     - default
 
 # option as metakey
-alt_send_esc: true
+# alt_send_esc: true
 
 # $ xxd -psd (enter key + return)
 key_bindings:
