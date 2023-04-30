@@ -196,6 +196,7 @@
   </action>
   <action id="QuickJavaDoc">
     <keyboard-shortcut first-keystroke="f1" />
+    <keyboard-shortcut first-keystroke="ctrl j" />
     <mouse-shortcut keystroke="control button2" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl v" />
   </action>
