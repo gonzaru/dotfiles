@@ -62,7 +62,6 @@
   <action id="EditorDown">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl n" />
-    <keyboard-shortcut first-keystroke="ctrl j" />
   </action>
   <action id="EditorIncreaseFontSize">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl alt equals" />
@@ -139,6 +138,7 @@
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl i" />
   </action>
   <action id="InsertLiveTemplate">
+    <keyboard-shortcut first-keystroke="ctrl j" />
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl space" />
   </action>
   <action id="MainMenu">
@@ -240,9 +240,6 @@
   </action>
   <action id="ToggleZenMode">
     <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="shift ctrl z" />
-  </action>
-  <action id="Tool_External Tools_gVim">
-    <keyboard-shortcut first-keystroke="ctrl s" second-keystroke="ctrl g" />
   </action>
   <action id="TypeHierarchyBase.BaseOnThisType">
     <keyboard-shortcut first-keystroke="ctrl h" />
