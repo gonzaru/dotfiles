@@ -235,6 +235,11 @@ elif hash aws_completer 2>/dev/null; then
   complete -C "$(command -v aws_completer)" aws
 fi
 
+# completion kubernetes cli (kubectl)
+if [[ -f ${HOME}/.bash_kubernetes ]]; then
+  . ${HOME}/.bash_kubernetes
+fi
+
 # completion extra tools
 if [[ $os_name == "Darwin" ]]; then
   complete -A command caffeinate
