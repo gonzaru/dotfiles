@@ -22,6 +22,7 @@ XSLT-Debugger
 com.android.tools.design
 com.android.tools.idea.smali
 com.deadlock.scsyntax
+com.intellij.LineProfiler
 com.intellij.aop
 com.intellij.beanValidation
 com.intellij.cdi
@@ -40,13 +41,13 @@ com.intellij.javaee.extensions
 com.intellij.javaee.gradle
 com.intellij.javaee.jpa
 com.intellij.javaee.web
+com.intellij.jsonpath
 com.intellij.jsp
 com.intellij.micronaut
 com.intellij.microservices.jvm
 com.intellij.microservices.ui
 com.intellij.persistence
 com.intellij.plugins.webcomponents
-com.intellij.properties
 com.intellij.quarkus
 com.intellij.reactivestreams
 com.intellij.searcheverywhere.ml
@@ -80,6 +81,7 @@ com.jetbrains.performancePlugin.kotlin
 com.jetbrains.performancePlugin.maven
 com.jetbrains.performancePlugin.workspaceModel
 com.jetbrains.performancePlugin.yourkit
+com.jetbrains.warmup.performanceTesting
 com.jetbrains.plugins.webDeployment
 com.jetbrains.restWebServices
 com.jetbrains.space
@@ -98,8 +100,8 @@ intellij.vitejs
 intellij.webp
 intellij.webpack
 org.editorconfig.editorconfigjetbrains
-org.intellij.groovy
 org.intellij.intelliLang
+org.intellij.plugins.postcss
 org.intellij.qodana
 org.jetbrains.android
 org.jetbrains.debugger.streams
@@ -109,7 +111,9 @@ org.jetbrains.idea.gradle.ext
 org.jetbrains.idea.maven
 org.jetbrains.idea.maven.ext
 org.jetbrains.java.decompiler
+org.jetbrains.plugins.docker.gateway
 org.jetbrains.plugins.github
+org.jetbrains.plugins.gitlab
 org.jetbrains.plugins.gradle
 org.jetbrains.plugins.gradle.analysis
 org.jetbrains.plugins.gradle.dependency.updater
