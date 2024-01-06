@@ -43,6 +43,7 @@ com.intellij.javaee.jpa
 com.intellij.javaee.web
 com.intellij.jsonpath
 com.intellij.jsp
+com.intellij.kubernetes
 com.intellij.micronaut
 com.intellij.microservices.jvm
 com.intellij.microservices.ui
@@ -67,6 +68,7 @@ com.intellij.tailwindcss
 com.intellij.tasks
 com.intellij.tasks.timeTracking
 com.intellij.thymeleaf
+com.intellij.turboComplete
 com.intellij.uiDesigner
 com.intellij.velocity
 com.jetbrains.codeWithMe
@@ -81,10 +83,10 @@ com.jetbrains.performancePlugin.kotlin
 com.jetbrains.performancePlugin.maven
 com.jetbrains.performancePlugin.workspaceModel
 com.jetbrains.performancePlugin.yourkit
-com.jetbrains.warmup.performanceTesting
 com.jetbrains.plugins.webDeployment
 com.jetbrains.restWebServices
 com.jetbrains.space
+com.jetbrains.warmup.performanceTesting
 cucumber-groovy
 cucumber-java
 gherkin
